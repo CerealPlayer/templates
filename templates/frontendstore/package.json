@@ -1,6 +1,6 @@
 {
-  "name": "web",
-  "version": "0.0.0",
+  "name": "front-end-store",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,15 +12,19 @@
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-icons": "^4.3.1",
     "ui": "*"
   },
   "devDependencies": {
+    "@types/node": "^17.0.34",
+    "@types/react": "18.0.9",
+    "autoprefixer": "^10.4.7",
     "eslint": "8.15.0",
     "eslint-config-custom": "*",
     "next-transpile-modules": "9.0.0",
+    "postcss": "^8.4.13",
+    "tailwindcss": "^3.0.24",
     "tsconfig": "*",
-    "@types/node": "^17.0.34",
-    "@types/react": "18.0.9",
     "typescript": "^4.6.4"
   }
 }
