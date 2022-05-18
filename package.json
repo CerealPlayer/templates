@@ -1,9 +1,9 @@
 {
-  "name": "turborepo-basic-shared",
-  "version": "0.0.0",
+  "name": "jmoa-templates",
+  "version": "0.0.1",
   "private": true,
   "workspaces": [
-    "apps/*",
+    "templates/*",
     "packages/*"
   ],
   "scripts": {
