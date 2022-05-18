@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Prompt:wght@100;300;400;500;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+  body {
+    @apply text-slate-800 font-content text-lg
+  }
+  h1 {
+    @apply text-xl md:text-3xl font-bold font-title
+  }
+  button{
+    @apply leading-none
+  }
+}
