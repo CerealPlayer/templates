@@ -1,9 +1,10 @@
 import ProductCard from "../UI/ProductCard";
+import Section from "../UI/Section";
 import Separator from "../UI/Separator";
 
 export default function BoughtTogether() {
   return (
-    <section className="w-11/12 max-w-xl lg:max-w-7xl mx-auto my-16">
+    <Section>
       <Separator>Frequently bought with</Separator>
       <div className="grid justify-items-center mx-auto mt-8 gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
         <ProductCard
@@ -19,6 +20,6 @@ export default function BoughtTogether() {
           href="/products/redux"
         />
       </div>
-    </section>
+    </Section>
   );
 }
