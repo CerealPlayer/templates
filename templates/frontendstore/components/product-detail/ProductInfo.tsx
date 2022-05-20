@@ -1,9 +1,10 @@
 import Image from "next/image";
+import BuyAction from "../UI/BuyAction";
 export default function ProductInfo() {
   return (
-    <main className="xl:mr-72 my-8">
-      <div className="w-11/12 mx-auto flex flex-col md:flex-row gap-16">
-        <div className="w-full max-w-3xl">
+    <main className="my-8">
+      <section className="w-11/12 max-w-xl xl:max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-12 gap-8">
+        <div className="w-full max-w-xl h-max bg-sky-900 p-4 rounded-xl mx-auto xl:col-span-5">
           <Image
             src="/techs/ReactLogo.svg"
             width={500}
@@ -12,7 +13,7 @@ export default function ProductInfo() {
             layout="responsive"
           />
         </div>
-        <article className="p-4 xl:p-16 w-full max-w-2xl mx-auto">
+        <article className="xl:py-8 xl:col-span-4 w-full mx-auto">
           <div className="flex flex-col gap-8">
             <div>
               <h1>React</h1>
@@ -26,7 +27,8 @@ export default function ProductInfo() {
             </p>
           </div>
         </article>
-      </div>
+        <BuyAction />
+      </section>
     </main>
   );
 }
