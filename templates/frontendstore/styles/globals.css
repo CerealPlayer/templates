@@ -9,7 +9,7 @@
     @apply text-slate-600 font-content text-sm md:text-base bg-slate-100
   }
   h1 {
-    @apply text-xl md:text-4xl text-slate-800 font-bold font-title
+    @apply text-2xl sm:text-4xl text-slate-800 font-bold font-title
   }
   h2 {
     @apply text-lg md:text-2xl text-slate-700
