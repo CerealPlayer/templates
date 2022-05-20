@@ -26,6 +26,24 @@ export default function Products() {
           title="Vue"
           desc="The cool kid"
         />
+        <ProductCard
+          href="products/svelte"
+          src="/techs/sveltelogo.svg"
+          title="Svelte"
+          desc="The next rockstar"
+        />
+        <ProductCard
+          href="products/lit"
+          src="/techs/litlogo.svg"
+          title="Lit"
+          desc="You should check it out"
+        />
+        <ProductCard
+          href="products/solid"
+          src="/techs/solidlogo.svg"
+          title="Solid"
+          desc="Doing things right"
+        />
       </div>
     </section>
   );
