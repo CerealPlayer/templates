@@ -1,7 +1,7 @@
 import { readFile } from "fs/promises";
 import type { products } from "../types/props";
 import Hero from "../components/home/Hero";
-import Products from "../components/home/Products";
+import Products from "../components/functional/Products";
 
 export default function Web({ products }: { products: products }) {
   return (

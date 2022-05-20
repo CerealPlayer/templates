@@ -1,5 +1,5 @@
 import { readFile } from "fs/promises";
-import Products from "../../components/home/Products";
+import Products from "../../components/functional/Products";
 import type { products } from "../../types/props";
 
 export default function ProducPage({ products }: { products: products }) {
