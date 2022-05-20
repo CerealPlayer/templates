@@ -6,13 +6,16 @@
 
 @layer base{
   body {
-    @apply text-slate-800 font-content text-sm md:text-lg bg-slate-100
+    @apply text-slate-600 font-content text-sm md:text-lg bg-slate-100
   }
   h1 {
-    @apply text-xl md:text-4xl font-bold font-title
+    @apply text-xl md:text-4xl text-slate-800 font-bold font-title
   }
   h2 {
-    @apply text-lg md:text-2xl
+    @apply text-lg md:text-2xl text-slate-700
+  }
+  h3 {
+    @apply text-slate-700 font-bold
   }
   button{
     @apply leading-none
