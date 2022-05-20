@@ -1,6 +1,11 @@
-import { useRouter } from "next/router";
+import ProductInfo from "../../components/product-detail/ProductInfo";
+import BuyFlow from "../../components/UI/BuyFlow";
 
 export default function ProductDetail() {
-  const router = useRouter();
-  return <h1 className="text-center">{router.query.slug}</h1>;
+  return (
+    <>
+      <ProductInfo />
+      <BuyFlow />
+    </>
+  );
 }

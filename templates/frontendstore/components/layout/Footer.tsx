@@ -2,7 +2,7 @@ import Button from "../UI/Button";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-800">
+    <footer className="bg-slate-800 relative">
       <div className="w-11/12 max-w-4xl flex flex-col gap-8 md:flex-row md:justify-between py-8 mx-auto">
         <div className="text-slate-200 text-center md:text-left">
           <h1>Front-end Store</h1>
