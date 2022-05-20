@@ -9,19 +9,19 @@ export default function Products() {
       </div>
       <div className="max-w-max mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-8">
         <ProductCard
-          href=""
+          href="products/react"
           src="/techs/ReactLogo.svg"
           title="React"
           desc="Everybody loves (hates) it"
         />
         <ProductCard
-          href=""
+          href="products/angular"
           src="/techs/angularlogo.svg"
           title="Angular"
           desc="What else do you need"
         />
         <ProductCard
-          href=""
+          href="products/vue"
           src="/techs/vuelogo.svg"
           title="Vue"
           desc="The cool kid"
