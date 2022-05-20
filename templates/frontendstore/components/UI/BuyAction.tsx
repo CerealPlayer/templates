@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export default function BuyAction() {
   return (
     <>
@@ -11,7 +9,7 @@ export default function BuyAction() {
           <h3>Elige una opción</h3>
           <select>
             <option>18.1</option>
-            <option>18</option>
+            <option>18.0</option>
             <option>17.0.2</option>
             <option>17.0.1</option>
           </select>
