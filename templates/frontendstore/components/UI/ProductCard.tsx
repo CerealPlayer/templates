@@ -11,7 +11,7 @@ type props = {
 export default function ProductCard({ href, src, title, desc }: props) {
   return (
     <Link href={href}>
-      <a className="border-2 border-slate-300 rounded-xl overflow-hidden group">
+      <a className="border-2 max-w-max border-slate-300 rounded-xl overflow-hidden group">
         <div className="p-2">
           <Image src={src} alt="React" width={300} height={290} />
         </div>

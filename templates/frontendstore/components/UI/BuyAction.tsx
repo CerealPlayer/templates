@@ -1,3 +1,5 @@
+import ActionButton from "./ActionButton";
+
 export default function BuyAction() {
   return (
     <>
@@ -17,12 +19,8 @@ export default function BuyAction() {
           </ul>
         </div>
         <div className="flex flex-col gap-4">
-          <button className="px-8 py-4 w-full rounded-lg hover:scale-105 transition-all duration-200 ease-out text-slate-50 font-bold bg-slate-700">
-            Add to cart
-          </button>
-          <button className="px-8 w-full py-4 rounded-lg text-slate-50 font-bold bg-gray-500 hover:scale-105 transition-all duration-200 ease-out">
-            Add to wishlist
-          </button>
+          <ActionButton primary>Add to cart</ActionButton>
+          <ActionButton>Add to wishlist</ActionButton>
         </div>
         <p className="my-4">
           <span className="font-bold">Return policy:</span> Eligible for return
