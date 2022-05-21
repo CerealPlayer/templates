@@ -1,13 +1,21 @@
-import { useContext } from "react";
-import { CartContext } from "../context/cart-context";
+import { readFile } from "fs/promises";
+import CartContainer from "../components/cart/CartContainer";
+import { products } from "../types/props";
 
-export default function Cart() {
-  const ctx = useContext(CartContext);
+export default function Cart({ products }: { products: products }) {
   return (
     <main>
-      {ctx.items.map((item) => (
-        <span>{item.id}</span>
-      ))}
+      <CartContainer products={products} />
     </main>
   );
+}
+
+export async function getStaticProps() {
+  const data = await readFile("./data/products.json");
+  const products = JSON.parse(data.toString());
+  return {
+    props: {
+      products: products,
+    },
+  };
 }

@@ -5,7 +5,7 @@ import ActionButton from "./ActionButton";
 export default function BuyAction() {
   const ctx = useContext(CartContext);
   const cartHandler = () => {
-    ctx.onSaveItem({ id: 1 });
+    ctx.onAddItem({ id: 1 });
   };
   return (
     <>

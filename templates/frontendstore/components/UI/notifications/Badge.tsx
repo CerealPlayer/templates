@@ -3,29 +3,28 @@ import { motion, useAnimation } from "framer-motion";
 import { CartContext } from "../../../context/cart-context";
 
 export default function Badge({ children }: { children: ReactNode }) {
-  const [isEmpty, setIsEmpty] = useState(false);
+  const [hasItem, setHasItem] = useState(false);
   const ctx = useContext(CartContext);
   const controls = useAnimation();
-  console.log(ctx);
   useEffect(() => {
-    if (ctx.items.length >= 1) {
-      setIsEmpty(false);
+    if (ctx.items.length > 0) {
+      setHasItem(true);
     } else {
-      setIsEmpty(true);
+      setHasItem(false);
     }
-    controls.start({
-      y: [0, -10, 5, 0],
-      transition: {
-        type: "spring",
-        duration: 0.3,
-        repeat: 2,
-        repeatDelay: 0.1,
-      },
-    });
-  }, [ctx]);
+    hasItem &&
+      controls.start({
+        y: [0, -10, 3],
+        transition: {
+          type: "spring",
+          duration: 0.25,
+          repeat: 1,
+        },
+      });
+  }, [ctx, hasItem]);
   return (
     <div className="relative">
-      {!isEmpty && (
+      {hasItem && (
         <motion.div
           animate={controls}
           className="absolute w-3 h-3 bg-[#8B7B64] rounded-full top-0 right-0"
