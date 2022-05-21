@@ -18,7 +18,7 @@ export default function ItemsDisplay({ products }: { products: products }) {
   }
   const deleteItemHandler = (id: number): void => {
     const deleteIndex = itemsInfo.findIndex((item) => item.id === id);
-    const withoutItem = itemsInfo.splice(deleteIndex, 1);
+    itemsInfo.splice(deleteIndex, 1);
     const nuIds = itemsInfo.map((item) => ({ id: item.id }));
     ctx.onSaveItems(nuIds);
   };
