@@ -1,3 +1,4 @@
+import { MdFilterList } from "react-icons/md";
 import { useState } from "react";
 import { products } from "../../types/props";
 import ProductCard from "../UI/ProductCard";
@@ -16,10 +17,11 @@ export default function Products({ products }: { products: products }) {
         <div className="flex justify-between gap-4">
           <span>Browse our products</span>
           <div
-            className="cursor-pointer"
+            className="cursor-pointer flex gap-2"
             onClick={() => (filterOpen ? close() : open())}
           >
             <span>Filter</span>
+            <MdFilterList size="1.5em" />
           </div>
         </div>
       </Separator>
