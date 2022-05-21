@@ -18,7 +18,7 @@ export default function BuyAction() {
             <li>Backed by Facebook</li>
           </ul>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 items-center">
           <ActionButton primary>Add to cart</ActionButton>
           <ActionButton>Add to wishlist</ActionButton>
         </div>
