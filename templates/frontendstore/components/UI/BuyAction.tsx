@@ -1,14 +1,11 @@
 import { useContext } from "react";
-import { useRouter } from "next/router";
 import { CartContext } from "../../context/cart-context";
 import ActionButton from "./ActionButton";
 
 export default function BuyAction() {
   const ctx = useContext(CartContext);
-  const router = useRouter();
   const cartHandler = () => {
     ctx.onSaveItem({ id: 1 });
-    router.push("/cart");
   };
   return (
     <>

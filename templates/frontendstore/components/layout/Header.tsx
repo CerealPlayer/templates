@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Button from "../UI/Button";
+import Badge from "../UI/notifications/Badge";
 
 export default function Header() {
   return (
@@ -16,7 +17,13 @@ export default function Header() {
         </Link>
         <nav className="hidden xl:flex items-center gap-8">
           <Button>Wishlist</Button>
-          <Button>Cart</Button>
+          <Badge>
+            <Link href="/cart">
+              <a>
+                <Button>Cart</Button>
+              </a>
+            </Link>
+          </Badge>
         </nav>
       </div>
     </header>
