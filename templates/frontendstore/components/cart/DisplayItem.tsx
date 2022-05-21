@@ -13,12 +13,12 @@ export default function DisplayItem({
     onDeleteItem(item.id);
   };
   return (
-    <div className="flex gap-8 justify-between items-center last-of-type:border-none py-2 border-b border-slate-300">
-      <div className="flex items-center gap-8">
+    <div className="flex gap-16 justify-between items-center last-of-type:border-none py-2 border-b border-slate-300">
+      <div className="flex items-center gap-4 md:gap-8">
         <div>
           <Image src={item.src} width={70} height={70} />
         </div>
-        <div className="flex flex-col items-start gap-2">
+        <div className="flex flex-col items-start md:gap-2">
           <h3>{item.name}</h3>
           <p>{item.short_desc}</p>
         </div>
