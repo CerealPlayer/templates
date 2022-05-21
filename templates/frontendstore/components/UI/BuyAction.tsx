@@ -1,6 +1,15 @@
+import { useContext } from "react";
+import { useRouter } from "next/router";
+import { CartContext } from "../../context/cart-context";
 import ActionButton from "./ActionButton";
 
 export default function BuyAction() {
+  const ctx = useContext(CartContext);
+  const router = useRouter();
+  const cartHandler = () => {
+    ctx.onSaveItem({ id: 1 });
+    router.push("/cart");
+  };
   return (
     <>
       <aside className="mx-auto w-full lg:col-span-3 border-2 rounded-xl p-4 border-slate-400">
@@ -19,7 +28,9 @@ export default function BuyAction() {
           </ul>
         </div>
         <div className="flex flex-col gap-4 items-center">
-          <ActionButton primary>Add to cart</ActionButton>
+          <ActionButton primary onClick={cartHandler}>
+            Add to cart
+          </ActionButton>
           <ActionButton>Add to wishlist</ActionButton>
         </div>
         <p className="my-4">

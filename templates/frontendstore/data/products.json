@@ -1,35 +1,41 @@
 [
   {
+    "id" : 1,
     "name": "React",
     "short_desc": "Everybody loves (hates) it",
     "src": "/techs/ReactLogo.svg",
     "href": "/products/react"
   },
   {
+    "id" : 2,
     "name": "Angular",
     "short_desc": "What else do you need",
     "src": "/techs/angularlogo.svg",
     "href": "/products/angular"
   },
   {
+    "id" : 3,
     "name": "Vue",
     "short_desc": "The cool kid",
     "src": "/techs/vuelogo.svg",
     "href": "/products/vue"
   },
   {
+    "id" : 4,
     "name": "Svelte",
     "short_desc": "The next rockstar",
     "src": "/techs/sveltelogo.svg",
     "href": "/products/svelte"
   },
   {
+    "id" : 5,
     "name": "Lit",
     "short_desc": "You should check it out",
     "src": "/techs/litlogo.svg",
     "href": "/products/lit"
   },
   {
+    "id" : 6,
     "name": "Solid",
     "short_desc": "Doing things right",
     "src": "/techs/solidlogo.svg",
