@@ -1,30 +1,26 @@
-## Getting Started
+# E-commerce template
 
-First, run the development server:
+## Content
 
-```bash
-yarn dev
-```
+As of right now the template only includes a landing page, a product detail page and a cart page.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The cart is powered by React's Context API, but that's not how we usually do it. The better way to do it is by having the user sign in and then saving his/her cart in a database. Or in case the user doesn't want to sign in we can just create a unique ID (with tools like [Nano ID](https://github.com/ai/nanoid)), save that on a database along with the cart content and finally, set a cookie with the ID that we'll use to retrieve the cart.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## To do
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+In the close future I'll be adding the following to the template, in no particular order:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Dynamic product detail page. Right now it is static with just React dummy content but it will be statically generated for every item available on the store.
 
-## Learn More
+- A checkout page, fully functional with Stripe Payment Element and Payment Intents API, the most straightforward way to get paid.
 
-To learn more about Next.js, take a look at the following resources:
+- A whishlist that we could use to track lists of items that we are interested in.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Functioning product filter, that will also power the "Trending" and "On sale" items on the navigation bar.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- An Admin panel, which would usually be hidden from the user, but for demonstration purposes will be open to you guys so that you can play around with the page (this will probably take the most time).
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_source=github.com&utm_medium=referral&utm_campaign=turborepo-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I will be more than glad if anybody wants to say something about this template. I am a lifelong learner and I like listening to feedback. Reach me out on twitter at [@iamjmoa](https://twitter.com/iamjmoa)
