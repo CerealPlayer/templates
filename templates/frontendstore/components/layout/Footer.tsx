@@ -10,17 +10,32 @@ export default function Footer() {
         </div>
         <ul className="text-slate-300 flex flex-col gap-2 items-center">
           <li>
-            <a href="https://www.jmoa.dev">
+            <a
+              href="https://www.jmoa.dev"
+              target="_blank"
+              rel="noreferrer"
+              referrerPolicy="no-referrer"
+            >
               <Button>JMOA</Button>
             </a>
           </li>
           <li>
-          <a href="">
+            <a
+              href="https://github.com/CerealPlayer/templates/tree/main/templates/frontendstore"
+              target="_blank"
+              rel="noreferrer"
+              referrerPolicy="no-referrer"
+            >
               <Button>See repo</Button>
             </a>
           </li>
           <li>
-          <a href="">
+            <a
+              href="https://twitter.com/home"
+              target="_blank"
+              rel="noreferrer"
+              referrerPolicy="no-referrer"
+            >
               <Button>Twitter</Button>
             </a>
           </li>
