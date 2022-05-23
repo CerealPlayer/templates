@@ -29,6 +29,7 @@ export default function Hero() {
               transition={{ duration: 0.3, ease: "linear" }}
             >
               <Image
+                alt="Next JS"
                 src="/techs/next-black.svg"
                 width={414}
                 height={248}
@@ -42,6 +43,7 @@ export default function Hero() {
               transition={{ duration: 0.3, ease: "linear" }}
             >
               <Image
+                alt="Redux"
                 src="/techs/reduxlogo.svg"
                 width={400}
                 height={400}

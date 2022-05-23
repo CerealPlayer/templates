@@ -21,7 +21,7 @@ export default function Badge({ children }: { children: ReactNode }) {
           repeat: 1,
         },
       });
-  }, [ctx, hasItem]);
+  }, [ctx, hasItem, controls]);
   return (
     <div className="relative">
       {hasItem && (
