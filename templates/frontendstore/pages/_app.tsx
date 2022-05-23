@@ -11,7 +11,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Front-end Store | An e-commerce demo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
         <meta
           name="description"
           content="This is a template that I personally use to learn and as a reference. It is supposed to be a complete e-commerce website, with all the integrations that something like that requires."

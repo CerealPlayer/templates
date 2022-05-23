@@ -19,7 +19,7 @@ export default function BuyAction() {
           <h3>Includes</h3>
           <ul className=" text-slate-600 list-disc list-outside pl-4">
             <li>Huge community</li>
-            <li>Thousands of librarys that will make your job easier</li>
+            <li>Thousands of libraries that will make your job easier</li>
             <li>Hooks</li>
             <li>Backed by Facebook</li>
           </ul>
