@@ -1,77 +1,28 @@
-# Turborepo starter with npm
+# Welcome to my templates repo
 
-This is an official starter turborepo.
+Here I will share all the templates that I create in order to learn, practice, be faster and organize my ideas in projects that try to cover everything that anybody using those would need.
 
-## What's inside?
+This repo is powered by [Turborepo](https://github.com/vercel/turborepo). I know that it is overkill, but I also wanted to practice monorepos and I plan on growing the list of templates anyway, so better safe than sorry.
 
-This turborepo uses [npm](https://www.npmjs.com/) as a package manager. It includes the following packages/apps:
 
-### Apps and Packages
+## How it is done
 
-- `docs`: a [Next.js](https://nextjs.org) app
-- `web`: another [Next.js](https://nextjs.org) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+Most (if not all) of the projects inside are powered by [Next JS](https://github.com/vercel/next.js), the framework built on top of React. I really like the tool, it feels like having super powers.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+However, I plan on learning other technologies like [Nuxt](https://github.com/nuxt/nuxt.js) or [Remix](https://github.com/remix-run/remix) so there is a chance that I will be expanding the list even more.
 
-### Utilities
 
-This turborepo has some additional tools already setup for you:
+## How to use
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+If the project gains enough traction, I will consider uploading these to the NPM registry so that they are easily accessible.
 
-## Setup
+As of right now, you could clone this repo, and installing the template that you like using [NPM Workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces), like this.
 
-This repository is used in the `npx create-turbo@latest` command, and selected when choosing which package manager you wish to use with your monorepo (npm).
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-npm run build
+```bash
+npm install -w templates/frontendstore
 ```
 
-### Develop
 
-To develop all apps and packages, run the following command:
+## Contributing
 
-```
-cd my-turborepo
-npm run dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching (Beta)](https://turborepo.org/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching (Beta) you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Pipelines](https://turborepo.org/docs/core-concepts/pipelines)
-- [Caching](https://turborepo.org/docs/core-concepts/caching)
-- [Remote Caching (Beta)](https://turborepo.org/docs/core-concepts/remote-caching)
-- [Scoped Tasks](https://turborepo.org/docs/core-concepts/scopes)
-- [Configuration Options](https://turborepo.org/docs/reference/configuration)
-- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
+I will be more than glad if anybody wants to say something about this template. I am a lifelong learner and I like listening to feedback. Reach me out on twitter at [@iamjmoa](https://twitter.com/iamjmoa)
