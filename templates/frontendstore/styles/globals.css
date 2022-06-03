@@ -12,7 +12,7 @@
     @apply min-h-screen flex flex-col justify-between
   }
   h1 {
-    @apply text-2xl sm:text-4xl text-slate-800 font-bold font-title
+    @apply text-2xl md:text-4xl text-slate-800 font-bold font-title
   }
   h2 {
     @apply text-lg md:text-2xl text-slate-700

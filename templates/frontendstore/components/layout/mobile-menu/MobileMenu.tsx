@@ -3,7 +3,7 @@ import ToggleBtn from "./ToggleBtn";
 
 const menuBgVariants: Variants = {
   open: {
-    clipPath: "circle(2000px at 40px 40px)",
+    clipPath: "circle(2000px at calc(100% - 45px) 24px)",
     transition: {
       type: "spring",
       stiffness: 20,
@@ -11,9 +11,8 @@ const menuBgVariants: Variants = {
     },
   },
   closed: {
-    clipPath: "circle(30px at 40px 40px)",
+    clipPath: "circle(20px at calc(100% - 45px) 24px)",
     transition: {
-      delay: 0.5,
       type: "spring",
       stiffness: 400,
       damping: 40,
@@ -29,7 +28,7 @@ export default function MobileMenu() {
       animate={isOpen ? "open" : "closed"}
       className="md:hidden flex items-center justify-center"
     >
-      <motion.div className="absolute top-0 right-0 bottom-0 w-full bg-neutral-100" variants={menuBgVariants}></motion.div>
+      <motion.div className="absolute top-0 right-0 z-20 bottom-0 w-full bg-neutral-100" variants={menuBgVariants}></motion.div>
       <ToggleBtn toggle={() => toggleIsOpen()} />
     </motion.div>
   );
