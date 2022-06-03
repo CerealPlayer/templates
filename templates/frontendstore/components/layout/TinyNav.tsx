@@ -4,7 +4,7 @@ import Button from "../UI/Button";
 import Badge from "../UI/notifications/Badge";
 import MobileMenu from "./mobile-menu/MobileMenu";
 
-export default function MobileNav({ children }: { children: ReactNode }) {
+export default function TinyNav({ children }: { children: ReactNode }) {
   return (
     <div className="xl:hidden border-b-2 border-b-slate-300 lg:px-8 py-2 md:py-4 flex justify-between">
       {children}
