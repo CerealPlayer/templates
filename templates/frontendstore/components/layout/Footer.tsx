@@ -31,7 +31,7 @@ export default function Footer() {
           </li>
           <li>
             <a
-              href="https://twitter.com/home"
+              href="https://twitter.com/iamjmoa"
               target="_blank"
               rel="noreferrer"
               referrerPolicy="no-referrer"
