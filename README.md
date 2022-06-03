@@ -5,7 +5,7 @@ Here I will share all the templates that I create in order to learn, practice, b
 This repo is powered by [Turborepo](https://github.com/vercel/turborepo). I know that it is overkill, but I also wanted to practice monorepos and I plan on growing the list of templates anyway, so better safe than sorry.
 
 
-## How it is done
+## How is it done
 
 Most (if not all) of the projects inside are powered by [Next JS](https://github.com/vercel/next.js), the framework built on top of React. I really like the tool, it feels like having super powers.
 
