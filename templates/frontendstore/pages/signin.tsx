@@ -5,13 +5,27 @@ import Link from "next/link";
 import ActionButton from "../components/UI/ActionButton";
 import Checkbox from "../components/UI/forms/Checkbox";
 import Input from "../components/UI/forms/Input";
+import { useState } from "react";
+import { signInResponse } from "../types/api";
+import signIn from "../utils/signIn";
+import { useRouter } from "next/router";
 
 YupPassword(Yup);
 
 export default function Signin() {
-  const signInHandler = (value: any) => {
-    console.log(value);
+  const router = useRouter();
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+
+  const signInHandler = async (value: any) => {
+    const { error, message, success } = await signIn(value);
+    if (error) setError(error);
+    if (message) setMessage(message);
+    if (success) {
+      setTimeout(() => router.push("/cart"), 1000);
+    }
   };
+
   const initialValues = {
     username: "",
     email: "",
@@ -19,10 +33,13 @@ export default function Signin() {
     terms: false,
   };
   const validationSchema = Yup.object({
-    username: Yup.string().required("Username required").max(32, "Max 32 characters"),
+    username: Yup.string()
+      .required("Username required")
+      .max(32, "Max 32 characters"),
     email: Yup.string()
       .email("Email format not correct")
-      .required("Email required").max(64, "Max 64 characters"),
+      .required("Email required")
+      .max(64, "Max 64 characters"),
     pass: Yup.string().required("Password required").password(),
     terms: Yup.boolean()
       .required("Required")
@@ -32,6 +49,8 @@ export default function Signin() {
     <main className="flex justify-center items-center">
       <div className="p-4 rounded-xl border bg-slate-50 border-slate-300 w-11/12 max-w-sm flex flex-col items-center">
         <h2>Create an account</h2>
+        {error && <span>{error}</span>}
+        {message && <span>{message}</span>}
         <Formik
           initialValues={initialValues}
           onSubmit={signInHandler}
