@@ -11,7 +11,6 @@ export default function TinyNav({ children }: { children: ReactNode }) {
       <nav className="hidden md:flex items-center">
         <Button>Trending</Button>
         <Button>On sale</Button>
-        <Button>Wishlist</Button>
         <Badge>
           <Link href="/cart">
             <a>
@@ -19,6 +18,11 @@ export default function TinyNav({ children }: { children: ReactNode }) {
             </a>
           </Link>
         </Badge>
+        <Link href="/signin">
+          <a>
+            <Button>Sign In</Button>
+          </a>
+        </Link>
       </nav>
       <MobileMenu />
     </div>

@@ -31,7 +31,11 @@ const itemVariants: Variants = {
 };
 
 function NavItem({ children }: { children: ReactNode }) {
-  return <motion.li className="text-2xl" variants={itemVariants}>{children}</motion.li>;
+  return (
+    <motion.li className="text-2xl w-24 text-center" variants={itemVariants}>
+      {children}
+    </motion.li>
+  );
 }
 
 export default function MobileNav() {
@@ -42,13 +46,17 @@ export default function MobileNav() {
     >
       <NavItem>Trending</NavItem>
       <NavItem>On Sale</NavItem>
-      <NavItem>Wishlist</NavItem>
       <NavItem>
         <Badge>
           <Link href="/cart">
             <a>Cart</a>
           </Link>
         </Badge>
+      </NavItem>
+      <NavItem>
+        <Link href="/signin">
+          <a>Sign In</a>
+        </Link>
       </NavItem>
     </motion.ul>
   );

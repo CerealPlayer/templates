@@ -12,7 +12,6 @@ export default function Nav({ children }: { children: ReactNode }) {
       </nav>
       {children}
       <nav className="flex items-center gap-8">
-        <Button>Wishlist</Button>
         <Badge>
           <Link href="/cart">
             <a>
@@ -20,6 +19,11 @@ export default function Nav({ children }: { children: ReactNode }) {
             </a>
           </Link>
         </Badge>
+        <Link href="/signin">
+          <a>
+            <Button>Sign In</Button>
+          </a>
+        </Link>
       </nav>
     </div>
   );

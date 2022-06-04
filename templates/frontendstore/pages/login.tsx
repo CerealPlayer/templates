@@ -3,14 +3,24 @@ import * as Yup from "yup";
 import YupPassword from "yup-password";
 import Link from "next/link";
 import ActionButton from "../components/UI/ActionButton";
-import Checkbox from "../components/UI/forms/Checkbox";
 import Input from "../components/UI/forms/Input";
+import { logIn } from "../utils/auth";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 YupPassword(Yup);
 
-export default function Signin() {
-  const signInHandler = (value: any) => {
-    console.log(value);
+export default function Login() {
+  const router = useRouter();
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  const signInHandler = async (value: any) => {
+    const { error, message, success } = await logIn(value);
+    if (error) setError(error);
+    if (message) setMessage(message);
+    if (success) {
+      setTimeout(() => router.push("/"), 1000);
+    }
   };
   const initialValues = {
     user: "",
@@ -26,6 +36,10 @@ export default function Signin() {
     <main className="flex justify-center items-center">
       <div className="p-4 rounded-xl border bg-slate-50 border-slate-300 w-11/12 max-w-sm flex flex-col items-center">
         <h2>Login to your account</h2>
+        {error && <span className="text-sm text-red-600 my-2">{error}</span>}
+        {message && (
+          <span className="text-sm text-green-700 my-2">{message}</span>
+        )}
         <Formik
           initialValues={initialValues}
           onSubmit={signInHandler}

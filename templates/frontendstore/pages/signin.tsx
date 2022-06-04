@@ -6,8 +6,7 @@ import ActionButton from "../components/UI/ActionButton";
 import Checkbox from "../components/UI/forms/Checkbox";
 import Input from "../components/UI/forms/Input";
 import { useState } from "react";
-import { signInResponse } from "../types/api";
-import signIn from "../utils/signIn";
+import { signIn } from "../utils/auth";
 import { useRouter } from "next/router";
 
 YupPassword(Yup);
@@ -22,7 +21,7 @@ export default function Signin() {
     if (error) setError(error);
     if (message) setMessage(message);
     if (success) {
-      setTimeout(() => router.push("/cart"), 1000);
+      setTimeout(() => router.push("/"), 1000);
     }
   };
 
@@ -46,11 +45,13 @@ export default function Signin() {
       .oneOf([true], "You must accept the terms and conditions"),
   });
   return (
-    <main className="flex justify-center items-center">
+    <main className="flex justify-center items-center my-8">
       <div className="p-4 rounded-xl border bg-slate-50 border-slate-300 w-11/12 max-w-sm flex flex-col items-center">
         <h2>Create an account</h2>
-        {error && <span>{error}</span>}
-        {message && <span>{message}</span>}
+        {error && <span className="text-sm text-red-600 my-2">{error}</span>}
+        {message && (
+          <span className="text-sm text-green-700 my-2">{message}</span>
+        )}
         <Formik
           initialValues={initialValues}
           onSubmit={signInHandler}
