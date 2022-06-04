@@ -30,7 +30,7 @@ async function handleAuthResponse(url: string, value: any) {
 function auth(data: authApiResponse) {
   const authObj = { user: data.user, sessionId: data.sessionId };
   const cookified = JSON.stringify(authObj);
-  const cookieMain = `auth=${cookified}`;
+  const cookieMain = `fes-auth=${cookified}`;
   const SECONDS_IN_A_WEEK = 60 * 60 * 24 * 7;
   const maxAge = `;max-age=${SECONDS_IN_A_WEEK}`;
   const additionalAttrs = ";SameSite=Strict";
@@ -44,4 +44,18 @@ export async function logIn(value: any) {
 
 export async function signIn(value: any) {
   return await handleAuthResponse("/api/attempt-signin", value);
+}
+
+export function getAuthCookie() {
+  const cookies = document.cookie;
+  const cookieArray = cookies.split(";").map((cookie) => cookie.trim());
+  const cookieObjs = cookieArray.map((cookie) => ({
+    key: cookie.split("=")[0],
+    value: cookie.split("=")[1],
+  }));
+  const authCookie = cookieObjs.filter(
+    (cookie) => cookie.key === "fes-auth"
+  )[0];
+  const parsedCookie = JSON.parse(authCookie.value);
+  return parsedCookie;
 }
