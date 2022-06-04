@@ -13,45 +13,35 @@ export default function Signin() {
     console.log(value);
   };
   const initialValues = {
-    username: "",
-    email: "",
+    user: "",
     pass: "",
-    terms: false,
   };
   const validationSchema = Yup.object({
-    username: Yup.string().required("Username required").max(32, "Max 32 characters"),
-    email: Yup.string()
-      .email("Email format not correct")
-      .required("Email required").max(64, "Max 64 characters"),
-    pass: Yup.string().required("Password required").password(),
-    terms: Yup.boolean()
-      .required("Required")
-      .oneOf([true], "You must accept the terms and conditions"),
+    user: Yup.string()
+      .required("User login method required")
+      .max(64, "Max 64 characters"),
+    pass: Yup.string().required("Password required"),
   });
   return (
     <main className="flex justify-center items-center">
       <div className="p-4 rounded-xl border bg-slate-50 border-slate-300 w-11/12 max-w-sm flex flex-col items-center">
-        <h2>Create an account</h2>
+        <h2>Login to your account</h2>
         <Formik
           initialValues={initialValues}
           onSubmit={signInHandler}
           validationSchema={validationSchema}
         >
           <Form className="my-8 flex flex-col gap-8 w-full">
-            <Input label="Username" name="username" type="text" />
-            <Input label="Email" name="email" type="email" />
+            <Input label="Username or email" name="user" type="text" />
             <Input label="Password" name="pass" type="password" />
-            <Checkbox name="terms">
-              I agree to the terms and conditions of the Front-End Store
-            </Checkbox>
             <ActionButton primary type="submit">
-              Sign in
+              Log in
             </ActionButton>
           </Form>
         </Formik>
-        <Link href="/login">
+        <Link href="/signin">
           <a className="border-b border-slate-300 hover:border-slate-700 transition-all duration-200">
-            Already have an account?
+            No account?
           </a>
         </Link>
       </div>

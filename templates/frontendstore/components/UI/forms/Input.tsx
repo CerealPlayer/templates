@@ -24,7 +24,9 @@ export default function Input({
         {...field}
       />
       {meta.touched && meta.error ? (
-        <div className="text-sm text-red-600">{meta.error}</div>
+        <div className="text-sm text-red-600 my-1">
+          {meta.error.charAt(0).toUpperCase() + meta.error.slice(1)}
+        </div>
       ) : null}
     </div>
   );

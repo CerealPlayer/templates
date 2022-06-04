@@ -6,7 +6,6 @@ export default function Checkbox({
   ...props
 }: FieldHookConfig<string>) {
   const [field, meta] = useField({ ...props, type: "checkbox" });
-  console.log(meta);
   return (
     <div>
       <label className="text-sm tracking-tight flex items-center gap-4">
