@@ -4,7 +4,7 @@ import ActionButton from "../UI/ActionButton";
 export default function GoToCheckout() {
   return (
     <div className="lg:col-span-6 border border-slate-300 rounded-xl px-4 py-8 max-h-52 flex flex-col gap-4 items-center">
-      <Link href="/signin">
+      <Link href="/signup">
         <a className="max-w-xs w-full block">
           <ActionButton>Sign in to checkout</ActionButton>
         </a>

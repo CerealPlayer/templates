@@ -54,7 +54,7 @@ export default function MobileNav() {
         </Badge>
       </NavItem>
       <NavItem>
-        <Link href="/signin">
+        <Link href="/signup">
           <a>Sign In</a>
         </Link>
       </NavItem>

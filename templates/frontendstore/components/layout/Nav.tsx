@@ -19,7 +19,7 @@ export default function Nav({ children }: { children: ReactNode }) {
             </a>
           </Link>
         </Badge>
-        <Link href="/signin">
+        <Link href="/signup">
           <a>
             <Button>Sign In</Button>
           </a>
