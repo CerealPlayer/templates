@@ -2,9 +2,9 @@
 
 ## Content
 
-As of right now the template only includes a landing page, a product detail page and a cart page.
+As of right now the template includes a landing page, product detail page, cart and auth pages.
 
-The cart is powered by React's Context API, but that's not how we usually do it. The better way to do it is by having the user sign in and then saving his/her cart in a database. Or in case the user doesn't want to sign in we can just create a unique ID (with tools like [Nano ID](https://github.com/ai/nanoid)), save that on a database along with the cart content and finally, set a cookie with the ID that we'll use to retrieve the cart.
+To avoid setting up a database (which would be super easy with [supabase](https://www.supabase.com), but you know, just a demo), product data comes from a json file and the cart is built with Context API. That's not how we usually do it but for the purpose of this demo it should suffice (for now 😈).
 
 ## To do
 
@@ -14,12 +14,15 @@ In the close future I'll be adding the following to the template, in no particul
 
 - A checkout page, fully functional with Stripe Payment Element and Payment Intents API, the most straightforward way to get paid.
 
-- A whishlist that we could use to track lists of items that we are interested in.
-
 - Functioning product filter, that will also power the "Trending" and "On sale" items on the navigation bar.
 
 - An Admin panel, which would usually be hidden from the user, but for demonstration purposes will be open to you guys so that you can play around with the page (this will probably take the most time).
 
+## Installing this template
+
+The complete project is a monorepo, so you could go to the root folder of the project, run `npm install` then `npm run dev -w templates/frontendstore` and open your browser on localhost:3000
+
+Or if you are just interested in this specific template, navigate to the templates/frontendstore folder and run `npm install`. However, using this approach will force you to have a separate node_modules folder for each template you have installed (probably duplicating packages)
 
 ## Contributing
 
