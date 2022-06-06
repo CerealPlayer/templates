@@ -1,4 +1,3 @@
-import Image from "next/image";
 import DisplayItem from "../components/cart/DisplayItem";
 import Section from "../components/UI/Section";
 import { useCart } from "../hooks/useCart";
