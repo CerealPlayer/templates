@@ -6,19 +6,26 @@ import Link from "next/link";
 import ActionButton from "../components/UI/ActionButton";
 import Checkbox from "../components/UI/forms/Checkbox";
 import Input from "../components/UI/forms/Input";
+import { RedirectableProviderType } from "next-auth/providers";
+import { useRouter } from "next/router";
 
 YupPassword(Yup);
 
 export default function Signup() {
+  const { push, query } = useRouter();
   const signUpHandler = async (value: any) => {
-    await signIn("credentials", {
-      callbackUrl: "http://localhost:3000",
+    const result = await signIn<RedirectableProviderType>("credentials", {
+      redirect: false,
       user: value.username,
       email: value.email,
       pass: value.pass,
       terms: value.terms,
-      proto: "signup",
+      proto: "login",
     });
+    if (result && result.ok) {
+      const isRefCart = query.ref === "cart";
+      push(isRefCart ? "/cart" : "/account");
+    }
   };
 
   const initialValues = {
@@ -57,7 +64,7 @@ export default function Signup() {
               I agree to the terms and conditions of the Front-End Store
             </Checkbox>
             <ActionButton primary type="submit">
-              Sign in
+              Sign up
             </ActionButton>
           </Form>
         </Formik>

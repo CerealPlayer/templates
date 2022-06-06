@@ -4,18 +4,24 @@ import Link from "next/link";
 import ActionButton from "../components/UI/ActionButton";
 import Input from "../components/UI/forms/Input";
 import { signIn } from "next-auth/react";
-import { useState } from "react";
+import { RedirectableProviderType } from "next-auth/providers";
+import { useRouter } from "next/router";
 
 export default function Login() {
+  const { push, query } = useRouter();
   const signInHandler = async (value: any) => {
-    await signIn("credentials", {
-      callbackUrl: "http://localhost:3000",
+    const result = await signIn<RedirectableProviderType>("credentials", {
+      redirect: false,
       user: value.username,
       email: value.email,
       pass: value.pass,
       terms: value.terms,
       proto: "login",
     });
+    if (result && result.ok) {
+      const isRefCart = query.ref === "cart";
+      push(isRefCart ? "/cart" : "/account");
+    }
   };
   const initialValues = {
     user: "",
@@ -44,7 +50,7 @@ export default function Login() {
             </ActionButton>
           </Form>
         </Formik>
-        <Link href="/signin">
+        <Link href="/signup">
           <a className="border-b border-slate-300 hover:border-slate-700 transition-all duration-200">
             No account?
           </a>

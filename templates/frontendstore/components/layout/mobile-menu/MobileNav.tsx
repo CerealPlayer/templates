@@ -54,8 +54,8 @@ export default function MobileNav({ isLoggedIn }: { isLoggedIn: boolean }) {
       </NavItem>
       <NavItem>
         {!isLoggedIn && (
-          <Link href="/signup">
-            <a>Sign In</a>
+          <Link href="/login">
+            <a>Log in</a>
           </Link>
         )}
         {isLoggedIn && (

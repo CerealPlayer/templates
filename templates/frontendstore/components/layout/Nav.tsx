@@ -26,9 +26,9 @@ export default function Nav({
           </Link>
         </Badge>
         {!isLoggedIn && (
-          <Link href="/signup">
+          <Link href="/login">
             <a>
-              <Button>Sign In</Button>
+              <Button>Log in</Button>
             </a>
           </Link>
         )}

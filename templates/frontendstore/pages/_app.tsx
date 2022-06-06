@@ -6,7 +6,7 @@ import { CartContextProvider } from "../context/cart-context";
 import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <CartContextProvider>
       <Head>
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="This is a template that I personally use to learn and as a reference. It is supposed to be a complete e-commerce website, with all the integrations that something like that requires."
         />
       </Head>
-      <SessionProvider>
+      <SessionProvider session={session}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
