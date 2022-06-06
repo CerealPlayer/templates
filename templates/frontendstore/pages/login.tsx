@@ -6,6 +6,7 @@ import Input from "../components/UI/forms/Input";
 import { signIn } from "next-auth/react";
 import { RedirectableProviderType } from "next-auth/providers";
 import { useRouter } from "next/router";
+import Section from "../components/UI/Section";
 
 export default function Login() {
   const { push, query } = useRouter();
@@ -34,7 +35,8 @@ export default function Login() {
     pass: Yup.string().required("Password required"),
   });
   return (
-    <div className="flex justify-center items-center">
+    <Section>
+      <div className="flex justify-center items-center">
       <div className="p-4 rounded-xl border bg-slate-50 border-slate-300 w-11/12 max-w-sm flex flex-col items-center">
         <h2>Login to your account</h2>
         <Formik
@@ -57,5 +59,6 @@ export default function Login() {
         </Link>
       </div>
     </div>
+    </Section>
   );
 }

@@ -8,6 +8,7 @@ import Checkbox from "../components/UI/forms/Checkbox";
 import Input from "../components/UI/forms/Input";
 import { RedirectableProviderType } from "next-auth/providers";
 import { useRouter } from "next/router";
+import Section from "../components/UI/Section";
 
 YupPassword(Yup);
 
@@ -48,32 +49,34 @@ export default function Signup() {
       .oneOf([true], "You must accept the terms and conditions"),
   });
   return (
-    <div className="flex justify-center items-center my-8">
-      <div className="p-4 rounded-xl border bg-slate-50 border-slate-300 w-11/12 max-w-sm flex flex-col items-center">
-        <h2>Create an account</h2>
-        <Formik
-          initialValues={initialValues}
-          onSubmit={signUpHandler}
-          validationSchema={validationSchema}
-        >
-          <Form className="my-8 flex flex-col gap-8 w-full">
-            <Input label="Username" name="username" type="text" />
-            <Input label="Email" name="email" type="email" />
-            <Input label="Password" name="pass" type="password" />
-            <Checkbox name="terms">
-              I agree to the terms and conditions of the Front-End Store
-            </Checkbox>
-            <ActionButton primary type="submit">
-              Sign up
-            </ActionButton>
-          </Form>
-        </Formik>
-        <Link href="/login">
-          <a className="border-b border-slate-300 hover:border-slate-700 transition-all duration-200">
-            Already have an account?
-          </a>
-        </Link>
+    <Section>
+      <div className="flex justify-center items-center">
+        <div className="p-4 rounded-xl border bg-slate-50 border-slate-300 w-11/12 max-w-sm flex flex-col items-center">
+          <h2>Create an account</h2>
+          <Formik
+            initialValues={initialValues}
+            onSubmit={signUpHandler}
+            validationSchema={validationSchema}
+          >
+            <Form className="my-8 flex flex-col gap-8 w-full">
+              <Input label="Username" name="username" type="text" />
+              <Input label="Email" name="email" type="email" />
+              <Input label="Password" name="pass" type="password" />
+              <Checkbox name="terms">
+                I agree to the terms and conditions of the Front-End Store
+              </Checkbox>
+              <ActionButton primary type="submit">
+                Sign up
+              </ActionButton>
+            </Form>
+          </Formik>
+          <Link href="/login">
+            <a className="border-b border-slate-300 hover:border-slate-700 transition-all duration-200">
+              Already have an account?
+            </a>
+          </Link>
+        </div>
       </div>
-    </div>
+    </Section>
   );
 }
