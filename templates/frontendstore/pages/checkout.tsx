@@ -1,30 +1,22 @@
 import Image from "next/image";
+import DisplayItem from "../components/cart/DisplayItem";
+import Section from "../components/UI/Section";
+import { useCart } from "../hooks/useCart";
 
 export default function Checkout() {
+  const { cartItems, deleteItem } = useCart();
   return (
-    <div>
-      <div>
-        <div>
+    <Section>
+      <div className="grid lg:grid-cols-12">
+        <div className="lg:col-span-5">
           <h1>18.10 $</h1>
-          <div>
-            <div className="flex gap-16 justify-between items-center last-of-type:border-none py-2 border-b border-slate-300">
-              <div className="flex items-center gap-4 md:gap-8">
-                <div>
-                  <Image
-                    alt="Image of the article"
-                    src="/techs/Reactlogo.svg"
-                    width={70}
-                    height={70}
-                  />
-                </div>
-                <div className="flex flex-col items-start md:gap-2">
-                  <h3>React</h3>
-                </div>
-              </div>
-            </div>
+          <div className="rounded-xl lg:col-span-8 border-slate-300 px-4 py-2 flex flex-col gap-4">
+            {cartItems.map((item) => (
+              <DisplayItem item={item} onDeleteItem={deleteItem} />
+            ))}
           </div>
         </div>
       </div>
-    </div>
+    </Section>
   );
 }

@@ -5,7 +5,7 @@ import Section from "../components/UI/Section";
 import { useCart } from "../hooks/useCart";
 
 export default function Cart() {
-  const { cartItems, saveItems } = useCart();
+  const { cartItems, deleteItem } = useCart();
 
   if (cartItems.length === 0) {
     return (
@@ -16,17 +16,12 @@ export default function Cart() {
       </Section>
     );
   }
-  const deleteItemHandler = (id: number): void => {
-    const deleteIndex = cartItems.findIndex((item) => item.id === id);
-    cartItems.splice(deleteIndex, 1);
-    const nuIds = cartItems.map((item) => ({ id: item.id }));
-    saveItems(nuIds);
-  };
+  
   return (
     <CartContainer>
       <div className="rounded-xl lg:col-span-8 border-slate-300 px-4 py-2 flex flex-col gap-4">
         {cartItems.map((item) => (
-          <DisplayItem item={item} onDeleteItem={deleteItemHandler} />
+          <DisplayItem item={item} onDeleteItem={deleteItem} />
         ))}
       </div>
       <GoToCheckout />

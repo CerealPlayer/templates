@@ -7,5 +7,15 @@ export function useCart() {
   const cartItems = ctx.items
     .filter((item) => item.id)
     .map((item) => data.filter((prod) => prod.id === item.id)[0]);
-  return { cartItems, addItem: ctx.onAddItem, saveItems: ctx.onSaveItems };
+  const deleteItemHandler = (id: number): void => {
+    const deleteIndex = cartItems.findIndex((item) => item.id === id);
+    cartItems.splice(deleteIndex, 1);
+    const nuIds = cartItems.map((item) => ({ id: item.id }));
+    ctx.onSaveItems(nuIds);
+  };
+  return {
+    cartItems,
+    addItem: ctx.onAddItem,
+    deleteItem: deleteItemHandler,
+  };
 }
