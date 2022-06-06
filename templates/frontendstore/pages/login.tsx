@@ -4,18 +4,18 @@ import Link from "next/link";
 import ActionButton from "../components/UI/ActionButton";
 import Input from "../components/UI/forms/Input";
 import { signIn } from "next-auth/react";
+import { useState } from "react";
 
 export default function Login() {
   const signInHandler = async (value: any) => {
-    const result = await signIn("credentials", {
-      redirect: false,
+    await signIn("credentials", {
+      callbackUrl: "http://localhost:3000",
       user: value.username,
       email: value.email,
       pass: value.pass,
       terms: value.terms,
-      proto: "signup",
+      proto: "login",
     });
-    console.log(result);
   };
   const initialValues = {
     user: "",

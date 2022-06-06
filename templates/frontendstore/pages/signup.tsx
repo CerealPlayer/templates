@@ -11,15 +11,14 @@ YupPassword(Yup);
 
 export default function Signup() {
   const signUpHandler = async (value: any) => {
-    const result = await signIn("credentials", {
-      redirect: false,
+    await signIn("credentials", {
+      callbackUrl: "http://localhost:3000",
       user: value.username,
       email: value.email,
       pass: value.pass,
       terms: value.terms,
       proto: "signup",
     });
-    console.log(result);
   };
 
   const initialValues = {

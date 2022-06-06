@@ -1,7 +1,6 @@
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import { ReactNode } from "react";
-import Button from "../../UI/Button";
 import Badge from "../../UI/notifications/Badge";
 
 const navVariants: Variants = {
@@ -38,7 +37,7 @@ function NavItem({ children }: { children: ReactNode }) {
   );
 }
 
-export default function MobileNav() {
+export default function MobileNav({ isLoggedIn }: { isLoggedIn: boolean }) {
   return (
     <motion.ul
       variants={navVariants}
@@ -54,9 +53,16 @@ export default function MobileNav() {
         </Badge>
       </NavItem>
       <NavItem>
-        <Link href="/signup">
-          <a>Sign In</a>
-        </Link>
+        {!isLoggedIn && (
+          <Link href="/signup">
+            <a>Sign In</a>
+          </Link>
+        )}
+        {isLoggedIn && (
+          <Link href="/account">
+            <a>My account</a>
+          </Link>
+        )}
       </NavItem>
     </motion.ul>
   );
