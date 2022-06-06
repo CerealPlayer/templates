@@ -3,7 +3,13 @@ import { ReactNode } from "react";
 import Button from "../UI/Button";
 import Badge from "../UI/notifications/Badge";
 
-export default function Nav({ children }: { children: ReactNode }) {
+export default function Nav({
+  children,
+  isLoggedIn,
+}: {
+  children: ReactNode;
+  isLoggedIn: boolean;
+}) {
   return (
     <div className="hidden border-b-2 border-b-slate-300 px-0 md:px-8 py-2 md:py-4 xl:grid grid-cols-3 justify-items-center">
       <nav className="flex items-center gap-8">
@@ -12,7 +18,6 @@ export default function Nav({ children }: { children: ReactNode }) {
       </nav>
       {children}
       <nav className="flex items-center gap-8">
-        <Button>Wishlist</Button>
         <Badge>
           <Link href="/cart">
             <a>
@@ -20,6 +25,20 @@ export default function Nav({ children }: { children: ReactNode }) {
             </a>
           </Link>
         </Badge>
+        {!isLoggedIn && (
+          <Link href="/login">
+            <a>
+              <Button>Log in</Button>
+            </a>
+          </Link>
+        )}
+        {isLoggedIn && (
+          <Link href="/account">
+            <a>
+              <Button>My account</Button>
+            </a>
+          </Link>
+        )}
       </nav>
     </div>
   );

@@ -22,7 +22,7 @@ export default function ItemsDisplay({
     onSaveItems(nuIds);
   };
   return (
-    <div className="border lg:col-span-6 border-slate-300 px-4 py-2 flex flex-col gap-4">
+    <div className="border rounded-xl lg:col-span-6 border-slate-300 px-4 py-2 flex flex-col gap-4">
       {itemsInfo.map((item) => (
         <DisplayItem item={item} onDeleteItem={deleteItemHandler} />
       ))}

@@ -19,7 +19,7 @@ function Path(props: {
 export default function ToggleBtn({ toggle }: { toggle: any }) {
   return (
     <button className="absolute z-30 right-8 top-4" onClick={toggle}>
-      <svg width="24" height="24" viewBox="00 23 23">
+      <svg width="24" height="24" viewBox="0 0 23 23">
         <Path
           variants={{
             closed: { d: "M 2 2.5 L 20 2.5" },

@@ -1,7 +1,6 @@
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import { ReactNode } from "react";
-import Button from "../../UI/Button";
 import Badge from "../../UI/notifications/Badge";
 
 const navVariants: Variants = {
@@ -31,10 +30,14 @@ const itemVariants: Variants = {
 };
 
 function NavItem({ children }: { children: ReactNode }) {
-  return <motion.li className="text-2xl" variants={itemVariants}>{children}</motion.li>;
+  return (
+    <motion.li className="text-2xl w-24 text-center" variants={itemVariants}>
+      {children}
+    </motion.li>
+  );
 }
 
-export default function MobileNav() {
+export default function MobileNav({ isLoggedIn }: { isLoggedIn: boolean }) {
   return (
     <motion.ul
       variants={navVariants}
@@ -42,13 +45,24 @@ export default function MobileNav() {
     >
       <NavItem>Trending</NavItem>
       <NavItem>On Sale</NavItem>
-      <NavItem>Wishlist</NavItem>
       <NavItem>
         <Badge>
           <Link href="/cart">
             <a>Cart</a>
           </Link>
         </Badge>
+      </NavItem>
+      <NavItem>
+        {!isLoggedIn && (
+          <Link href="/login">
+            <a>Log in</a>
+          </Link>
+        )}
+        {isLoggedIn && (
+          <Link href="/account">
+            <a>My account</a>
+          </Link>
+        )}
       </NavItem>
     </motion.ul>
   );
