@@ -48,7 +48,7 @@ export default function Signup() {
       .oneOf([true], "You must accept the terms and conditions"),
   });
   return (
-    <main className="flex justify-center items-center my-8">
+    <div className="flex justify-center items-center my-8">
       <div className="p-4 rounded-xl border bg-slate-50 border-slate-300 w-11/12 max-w-sm flex flex-col items-center">
         <h2>Create an account</h2>
         <Formik
@@ -74,6 +74,6 @@ export default function Signup() {
           </a>
         </Link>
       </div>
-    </main>
+    </div>
   );
 }

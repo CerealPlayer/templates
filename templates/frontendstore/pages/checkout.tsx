@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Checkout() {
   return (
-    <main>
+    <div>
       <div>
         <div>
           <h1>18.10 $</h1>
@@ -25,6 +25,6 @@ export default function Checkout() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

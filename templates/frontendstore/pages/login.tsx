@@ -34,7 +34,7 @@ export default function Login() {
     pass: Yup.string().required("Password required"),
   });
   return (
-    <main className="flex justify-center items-center">
+    <div className="flex justify-center items-center">
       <div className="p-4 rounded-xl border bg-slate-50 border-slate-300 w-11/12 max-w-sm flex flex-col items-center">
         <h2>Login to your account</h2>
         <Formik
@@ -56,6 +56,6 @@ export default function Login() {
           </a>
         </Link>
       </div>
-    </main>
+    </div>
   );
 }
