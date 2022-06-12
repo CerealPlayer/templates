@@ -1,38 +1,36 @@
 import { motion, useCycle, Variants } from "framer-motion";
-import Link from "next/link";
 import { BsInfoCircle } from "react-icons/bs";
-import { AiOutlineCopy } from "react-icons/ai";
+import { PushBody } from "./PushBody";
 
 const variants: Variants = {
-  open: {
-    height: "auto",
-    transition: {
-      type: "tween",
-      duration: 0.2,
-      ease: "easeInOut",
-    },
-  },
-  close: {
-    height: "40px",
-    transition: {
-      type: "tween",
-      duration: 0.2,
-      ease: "easeInOut",
-    },
-  },
+  open: {},
+  closed: {},
 };
 
-export function Push({ children }: { children: React.ReactNode }) {
-  // const [isOpen, toggle] = useCycle(false, true);
+export function Push({
+  children,
+  title,
+  type,
+}: {
+  children: React.ReactNode;
+  title: string;
+  type: "info" | "error" | "success";
+}) {
+  const [isOpen, toggle] = useCycle(false, true);
   return (
     <motion.div
-      // variants={variants}
-      // animate={isOpen ? "open" : "close"}
-      // onClick={() => toggle()}
-      // whileHover={isOpen ? { scale: 1.1, cursor: "pointer" } : undefined}
-      className="fixed bottom-8 left-8 bg-blue-600 z-20 px-4 py-2 rounded-md text-neutral-100 shadow-md shadow-black"
+      initial={false}
+      variants={variants}
+      animate={isOpen ? "open" : "closed"}
+      onClick={() => toggle()}
+      whileHover={isOpen ? undefined : { cursor: "pointer" }}
+      className="fixed bottom-8 left-8 z-20 rounded-md bg-blue-600 px-4 py-2 text-neutral-100 overflow-hidden"
     >
-      {children}
+      <div className="flex rounded-md gap-2 items-center">
+        {type === "info" && <BsInfoCircle size="1.2em" />}
+        <h1 className="font-sans text-neutral-100 text-base">{title}</h1>
+      </div>
+      <PushBody>{children}</PushBody>
     </motion.div>
   );
 }
