@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import { AiOutlineCopy } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
-import { Push, PushTitle, PushBody } from "ui";
+import { Push, PushTitle, PushBody, ExtLink } from "ui";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -21,23 +21,13 @@ export default function Layout({ children }: { children: ReactNode }) {
         <PushBody>
           <p className="text-sm">
             Created by{" "}
-            <a
-              href="https://www.jmoa.dev"
-              rel="noreferrer"
-              className="border-b border-rose-500 hover:border-b-4 transition-all duration-200 ease-out"
-            >
-              Juan Olivas
-            </a>{" "}
+            <ExtLink href="https://www.jmoa.dev">Juan Olivas</ExtLink>{" "}
           </p>
           <p className="text-sm">
             You can find the repo{" "}
-            <a
-              href="https://github.com/CerealPlayer/templates/tree/main/templates/frontendstore"
-              rel="noreferrer"
-              className="border-b border-rose-500 hover:border-b-4 transition-all duration-200 ease-out"
-            >
+            <ExtLink href="https://github.com/CerealPlayer/templates/tree/main/templates/frontendstore">
               here
-            </a>
+            </ExtLink>
             .
           </p>
           <p className="text-sm">
