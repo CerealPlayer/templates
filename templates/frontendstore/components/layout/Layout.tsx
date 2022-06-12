@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             </Link>{" "}
             to check the admin page.
           </p>
-          <p className="text-sm">Test the checkout. Card number:</p>
+          <p className="text-sm">Test the checkout with this card number:</p>
           <span
             className="text-sm flex gap-1 underline cursor-pointer"
             onClick={() => navigator.clipboard.writeText("4242424242424242")}
@@ -47,7 +47,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             4242 4242 4242 4242
             <AiOutlineCopy size="1.1em" />
           </span>
-          <p className="text-sm">Any future expiration date, any 3 digit CVV</p>
+          <p className="text-sm">any future exp date and any 3 digit CVV</p>
         </PushBody>
       </Push>
       <Footer />
