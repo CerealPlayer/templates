@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import Push from "../UI/notifications/Push";
+import { Push } from "ui";
 import Footer from "./Footer";
 import Header from "./Header";
 

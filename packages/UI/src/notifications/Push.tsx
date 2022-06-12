@@ -22,7 +22,7 @@ const variants: Variants = {
   },
 };
 
-export default function Push() {
+export function Push() {
   // const [isOpen, toggle] = useCycle(false, true);
   return (
     <motion.div
