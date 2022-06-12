@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Push from "../UI/notifications/Push";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -7,6 +8,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <>
       <Header />
       {children}
+      <Push />
       <Footer />
     </>
   );
