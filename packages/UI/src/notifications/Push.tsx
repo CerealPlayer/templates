@@ -24,6 +24,11 @@ const variants: Variants = {
   },
 };
 
+interface includesOffset extends HTMLDivElement {
+  offsetWidth: number;
+  offsetHeight: number;
+}
+
 export function Push({
   children,
   title,
@@ -34,7 +39,7 @@ export function Push({
   type: "info" | "error" | "success";
 }) {
   const [isOpen, toggle] = useCycle(false, true);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<includesOffset>(null);
   const { height } = useDimensions(contentRef);
   return (
     <motion.div

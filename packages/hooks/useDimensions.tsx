@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 
-export function useDimensions(ref: React.RefObject<HTMLDivElement>) {
+interface includesOffset extends HTMLDivElement {
+  offsetWidth: number;
+  offsetHeight: number;
+}
+
+export function useDimensions(ref: React.RefObject<includesOffset>) {
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
 
