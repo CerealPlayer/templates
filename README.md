@@ -12,23 +12,9 @@ However, I plan on learning other technologies like [Nuxt](https://github.com/nu
 
 ## How to use
 
-If the project gains enough traction, I will consider uploading these to the NPM registry so that they are easily accessible.
+As of right now, you could clone this repo, and install the template that you like using [NPM Workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces).
 
-As of right now, you could clone this repo, and install the template that you like using [NPM Workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces), like this.
-
-```bash
-npm install -w templates/frontendstore
-```
-
-After that, you will need to navigate to the folder you installed:
-
-```bash
-cd templates/frontendstore
-```
-
-Once in the installed folder, run `npm run dev` to start a local server and explore the project
-
-If you wish to install the whole project, in the root folder run `npm install` and then `npm run dev`. This will start a dev server for all of the projects inside.
+Or install the whole project. Run `npm install` and then `npm run dev`. This will start a dev server for all of the projects inside.
 
 ## Contributing
 
