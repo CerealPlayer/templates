@@ -9,9 +9,22 @@ const variants: Variants = {
   },
 };
 
-export function PushBody({ children }: { children: React.ReactNode }) {
+export function PushBody({
+  children,
+  isOpen,
+  contentRef,
+}: {
+  children: React.ReactNode;
+  isOpen: boolean;
+  contentRef: React.RefObject<HTMLDivElement>;
+}) {
   return (
-    <motion.div variants={variants} className="max-w-xs flex flex-col gap-1 absolute">
+    <motion.div
+      ref={contentRef}
+      variants={variants}
+      style={{ pointerEvents: isOpen ? "auto" : "none" }}
+      className="flex flex-col gap-1 absolute"
+    >
       {children}
     </motion.div>
   );
