@@ -47,7 +47,7 @@ export default function DisplayItem({
           </div>
         </div>
         <div className="flex flex-col items-end justify-start">
-          <span>{(parseFloat(basePrice) * qt).toFixed(2)} $</span>
+          <span className="font-bold">{(parseFloat(basePrice) * qt).toFixed(2)} $</span>
           {qt > 1 && <span className="text-sm">{basePrice} $ per unit</span>}
         </div>
       </div>
