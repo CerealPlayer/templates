@@ -1,13 +1,14 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export function useDimensions(ref: React.RefObject<HTMLDivElement>) {
-  const dimensions = useRef({ width: 0, height: 0 });
+  const [height, setHeight] = useState(0);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
     if (!ref.current) return;
-    dimensions.current.width = ref.current.offsetWidth;
-    dimensions.current.height = ref.current.offsetHeight;
+    setWidth(ref.current.offsetWidth);
+    setHeight(ref.current.offsetHeight);
   }, []);
 
-  return dimensions.current;
+  return { height, width };
 }
