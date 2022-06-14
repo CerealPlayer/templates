@@ -42,7 +42,7 @@ export default function UserData() {
           onSubmit={submitHandler}
         >
           <Form className="flex flex-col gap-8">
-            <div className="lg:flex lg:items-center lg:justify-between lg:gap-8">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <Input label="Full Name" name="name" />
               <Input label="Email" name="email" type="email" />
             </div>
