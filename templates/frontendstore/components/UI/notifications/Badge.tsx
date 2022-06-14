@@ -1,17 +1,12 @@
-import { ReactNode, useEffect, useContext, useState } from "react";
+import { ReactNode, useEffect, useContext } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { CartContext } from "../../../context/cart-context";
 
 export default function Badge({ children }: { children: ReactNode }) {
-  const [hasItem, setHasItem] = useState(false);
   const ctx = useContext(CartContext);
+  const hasItem = ctx.items.length > 0;
   const controls = useAnimation();
   useEffect(() => {
-    if (ctx.items.length > 0) {
-      setHasItem(true);
-    } else {
-      setHasItem(false);
-    }
     hasItem &&
       controls.start({
         y: [0, -10, 3],
@@ -21,7 +16,7 @@ export default function Badge({ children }: { children: ReactNode }) {
           repeat: 1,
         },
       });
-  }, [ctx, hasItem, controls]);
+  });
   return (
     <div className="relative">
       {hasItem && (
