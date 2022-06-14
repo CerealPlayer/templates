@@ -1,5 +1,5 @@
 import DisplayCheckoutItem from "../components/checkout/DisplayCheckoutItem";
-import CheckoutForm from "../components/checkout/form/CheckoutForm";
+import UserData from "../components/checkout/form/UserData";
 import Section from "../components/UI/Section";
 import { useCart } from "../hooks/useCart";
 
@@ -9,7 +9,7 @@ export default function Checkout() {
     <Section>
       <div className="grid lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-8">
-          <CheckoutForm />
+          <UserData />
         </div>
         <div className="lg:col-span-4">
           <h1>18.10 $</h1>
