@@ -9,11 +9,21 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "test": "jest",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "@babel/preset-typescript": "^7.17.12",
+    "@testing-library/react": "^13.3.0",
+    "@types/jest": "^28.1.2",
+    "babel-jest": "^28.1.1",
+    "jest": "^28.1.1",
     "prettier": "latest",
+    "react-test-renderer": "^18.2.0",
     "turbo": "latest"
   },
   "engines": {
