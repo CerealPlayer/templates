@@ -24,6 +24,17 @@ export default function UserData() {
     clientSecret: data ? data.clientSecret : "",
     appearance: {
       theme: "stripe",
+      rules: {
+        ".Input": {
+          backgroundColor: "#F8FAFC",
+          border: "solid 2px #64748b4d",
+          padding: "4px 16px",
+        },
+        ".Input:focus": {
+          borderColor: "#64748B",
+          boxShadow: "none",
+        },
+      },
     },
   };
   const submitHandler = async (values: any) => {
