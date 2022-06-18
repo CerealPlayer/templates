@@ -22,6 +22,7 @@
     "@types/jest": "^28.1.2",
     "babel-jest": "^28.1.1",
     "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1",
     "prettier": "latest",
     "react-test-renderer": "^18.2.0",
     "turbo": "latest"
@@ -30,5 +31,8 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "npm@8.5.0"
+  "packageManager": "npm@8.5.0",
+  "jest": {
+    "testEnvironment": "jsdom"
+  }
 }
