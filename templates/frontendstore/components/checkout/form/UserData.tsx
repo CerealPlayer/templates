@@ -22,13 +22,24 @@ export default function UserData() {
   });
   const options: StripeElementsOptions = {
     clientSecret: data ? data.clientSecret : "",
+    fonts: [
+      {
+        cssSrc:
+          "https://fonts.googleapis.com/css2?family=Prompt:wght@100;300;400;500;700;900&display=swap",
+      },
+    ],
     appearance: {
       theme: "stripe",
+      variables: {
+        spacingGridRow: "2rem",
+        fontFamily: "Prompt, sans-serif",
+      },
       rules: {
         ".Input": {
           backgroundColor: "#F8FAFC",
           border: "solid 2px #64748b4d",
           padding: "4px 16px",
+          lineHeight: "1.5rem",
         },
         ".Input:focus": {
           borderColor: "#64748B",
