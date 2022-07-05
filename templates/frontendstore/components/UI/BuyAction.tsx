@@ -2,17 +2,23 @@ import { useContext } from "react";
 import { CartContext } from "../../context/cart-context";
 import ActionButton from "./ActionButton";
 
-export default function BuyAction() {
+export default function BuyAction({
+  id,
+  price,
+}: {
+  id: number;
+  price: number;
+}) {
   const ctx = useContext(CartContext);
   const cartHandler = () => {
-    ctx.onAddItem({ id: 1 });
+    ctx.onAddItem({ id });
   };
   return (
     <>
       <aside className="mx-auto w-full lg:col-span-3 border-2 rounded-xl p-4 border-slate-400">
         <div className="flex justify-end">
           <span className="text-3xl text-slate-200 font-bold bg-slate-600 py-1 px-2 rounded-md">
-            18.10 €
+            {price.toFixed(2)} €
           </span>
         </div>
         <div className="my-8">

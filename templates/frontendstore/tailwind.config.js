@@ -9,6 +9,9 @@ module.exports = {
         title: "Bebas Neue, cursive",
         content: "Prompt, sans-serif",
       },
+      minHeight: {
+        "body": "calc(100vh - 176px - 74px)",
+      },
     },
   },
   plugins: [],

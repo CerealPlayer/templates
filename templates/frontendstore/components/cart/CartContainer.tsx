@@ -14,7 +14,11 @@ export default function CartContainer({ products }: { products: products }) {
 
   if (itemsInfo.length === 0) {
     return (
-      <h1 className="text-center">Currently, you have 0 items on your cart</h1>
+      <div className="min-h-body flex justify-center items-center">
+        <h1 className="text-center">
+          Currently, you have 0 items on your cart
+        </h1>
+      </div>
     );
   }
   return (
