@@ -1,18 +1,26 @@
 import { createContext, useState, ReactNode } from "react";
 
+type cartItem = { id: number; qt: number };
+
 export const CartContext = createContext({
-  items: [{ id: 0 }],
-  onAddItem: (item: { id: number }) => {},
-  onSaveItems: (item: { id: number }[]) => {},
+  items: [{ id: 0, qt: 0 }],
+  onAddItem: (id: number) => {},
+  onSaveItems: (item: cartItem[]) => {},
 });
 
 export function CartContextProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<{ id: number }[]>([]);
+  const [items, setItems] = useState<cartItem[]>([]);
 
-  const addItemsHandler = (item: { id: number }) => {
-    setItems((prev) => [...prev, item]);
+  const addItemsHandler = (id: number) => {
+    setItems((prev) => {
+      const itemIndex = prev.findIndex((item) => item.id === id);
+      if (itemIndex === -1) return [...prev, { id, qt: 1 }];
+      const copyState = [...prev];
+      copyState[itemIndex].qt += 1;
+      return copyState;
+    });
   };
-  const saveItemsHandler = (items: { id: number }[]) => {
+  const saveItemsHandler = (items: cartItem[]) => {
     setItems(items);
   };
 

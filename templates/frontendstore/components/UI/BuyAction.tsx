@@ -11,7 +11,7 @@ export default function BuyAction({
 }) {
   const ctx = useContext(CartContext);
   const cartHandler = () => {
-    ctx.onAddItem({ id });
+    ctx.onAddItem(id);
   };
   return (
     <>
