@@ -4,19 +4,19 @@ type cartItem = { id: number; qt: number };
 
 export const CartContext = createContext({
   items: [{ id: 0, qt: 0 }],
-  onAddItem: (id: number) => {},
+  onAddItem: (id: number, qt: number) => {},
   onSaveItems: (item: cartItem[]) => {},
 });
 
 export function CartContextProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<cartItem[]>([]);
 
-  const addItemsHandler = (id: number) => {
+  const addItemsHandler = (id: number, qt: number) => {
     setItems((prev) => {
       const itemIndex = prev.findIndex((item) => item.id === id);
       if (itemIndex === -1) return [...prev, { id, qt: 1 }];
       const copyState = [...prev];
-      copyState[itemIndex].qt += 1;
+      (copyState[itemIndex].qt = qt);
       return copyState;
     });
   };

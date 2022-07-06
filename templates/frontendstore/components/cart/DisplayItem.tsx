@@ -21,6 +21,7 @@ export default function DisplayItem({
   if (!name || !src || !price || !id) {
     return null;
   }
+  console.log(qt);
   const deleteHandler = () => {
     onDeleteItem(id);
   };
@@ -45,12 +46,9 @@ export default function DisplayItem({
             <div className="text-sm text-slate-600 flex gap-1">
               <span>Qt</span>
               <select onChange={qtHandler} value={qt} className="bg-slate-200">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
+                {Array.from(Array(10), (_, x) => x + 1).map((n) => (
+                  <option>{n}</option>
+                ))}
               </select>
             </div>
           </div>
