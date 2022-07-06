@@ -1,7 +1,7 @@
 import CartContainer from "../components/cart/CartContainer";
 import DisplayItem from "../components/cart/DisplayItem";
 import GoToCheckout from "../components/cart/GoToCheckout";
-import Section from "../components/UI/Section";
+import Section from "../components/UI/containers/Section";
 import { retrieveData } from "../helpers";
 import { useCart } from "../hooks/useCart";
 import { products } from "../types/props";

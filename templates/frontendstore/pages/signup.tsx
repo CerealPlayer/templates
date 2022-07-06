@@ -3,12 +3,12 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import YupPassword from "yup-password";
 import Link from "next/link";
-import ActionButton from "../components/UI/ActionButton";
+import ActionButton from "../components/UI/btns/ActionButton";
 import Checkbox from "../components/UI/forms/Checkbox";
 import Input from "../components/UI/forms/Input";
 import { RedirectableProviderType } from "next-auth/providers";
 import { useRouter } from "next/router";
-import Section from "../components/UI/Section";
+import Section from "../components/UI/containers/Section";
 
 YupPassword(Yup);
 

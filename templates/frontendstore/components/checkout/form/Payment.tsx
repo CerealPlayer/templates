@@ -5,7 +5,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { useRouter } from "next/router";
 import { FormEventHandler, useState } from "react";
-import ActionButton from "../../UI/ActionButton";
+import ActionButton from "../../UI/btns/ActionButton";
 
 export default function Payment({
   // onSubmit,

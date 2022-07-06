@@ -1,7 +1,5 @@
-import { useContext } from "react";
-import { CartContext } from "../../context/cart-context";
-import { useCart } from "../../hooks/useCart";
-import ActionButton from "./ActionButton";
+import { useCart } from "../../../hooks/useCart";
+import ActionButton from "../btns/ActionButton";
 
 export default function BuyAction({
   id,

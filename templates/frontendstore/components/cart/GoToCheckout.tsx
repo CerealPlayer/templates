@@ -1,6 +1,6 @@
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import ActionButton from "../UI/ActionButton";
+import ActionButton from "../UI/btns/ActionButton";
 
 export default function GoToCheckout() {
   const { status } = useSession();

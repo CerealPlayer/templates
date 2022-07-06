@@ -1,12 +1,12 @@
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
-import ActionButton from "../components/UI/ActionButton";
+import ActionButton from "../components/UI/btns/ActionButton";
 import Input from "../components/UI/forms/Input";
 import { signIn } from "next-auth/react";
 import { RedirectableProviderType } from "next-auth/providers";
 import { useRouter } from "next/router";
-import Section from "../components/UI/Section";
+import Section from "../components/UI/containers/Section";
 
 export default function Login() {
   const { push, query } = useRouter();

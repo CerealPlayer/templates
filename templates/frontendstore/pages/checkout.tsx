@@ -1,6 +1,6 @@
 import DisplayCheckoutItem from "../components/checkout/DisplayCheckoutItem";
 import UserData from "../components/checkout/form/UserData";
-import Section from "../components/UI/Section";
+import Section from "../components/UI/containers/Section";
 import { retrieveData } from "../helpers";
 import { useCart } from "../hooks/useCart";
 import { products } from "../types/props";

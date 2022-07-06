@@ -1,4 +1,4 @@
-import Section from "../UI/Section";
+import Section from "../UI/containers/Section";
 
 export default function CartContainer({
   children,

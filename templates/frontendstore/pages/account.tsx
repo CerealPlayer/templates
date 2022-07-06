@@ -1,8 +1,8 @@
 import { GetServerSideProps } from "next";
 import { getSession, signOut } from "next-auth/react";
 import { redirect } from "next/dist/server/api-utils";
-import ActionButton from "../components/UI/ActionButton";
-import Section from "../components/UI/Section";
+import ActionButton from "../components/UI/btns/ActionButton";
+import Section from "../components/UI/containers/Section";
 
 export default function AccountPage() {
   return (

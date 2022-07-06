@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ArrayElement, products } from "../../types/props";
-import BuyAction from "../UI/BuyAction";
-import Section from "../UI/Section";
+import BuyAction from "../UI/actions/BuyAction";
+import Section from "../UI/containers/Section";
 export default function ProductInfo({
   item,
 }: {
