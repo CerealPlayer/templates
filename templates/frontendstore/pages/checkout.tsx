@@ -2,21 +2,13 @@ import DisplayCheckoutItem from "../components/checkout/DisplayCheckoutItem";
 import UserData from "../components/checkout/form/UserData";
 import Section from "../components/UI/containers/Section";
 import { retrieveData } from "../helpers";
-import { calcPrice } from "../helpers/client";
+import { calcPrice, getCartInfo } from "../helpers/client";
 import { useCart } from "../hooks/useCart";
 import { ArrayElement, products } from "../types/props";
 
 export default function Checkout({ products }: { products: products }) {
   const { items } = useCart();
-  const productsInCart = items
-    .filter((item) => item.id)
-    .map((item) => {
-      if (!item) return null
-      const product = products.find((product) => product.id === item.id);
-      if (product) {
-        return { ...product, qt: item.qt };
-      } else return null;
-    }) as (ArrayElement<products> & { qt: number })[];
+  const productsInCart = getCartInfo({ items, products })
   if (!productsInCart.some((item) => item !== null)) {
     return (
       <div className="flex justify-center items-center min-h-body">
