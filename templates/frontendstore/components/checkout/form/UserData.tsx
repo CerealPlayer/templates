@@ -6,10 +6,12 @@ import ErrorMsg from "../../UI/notifications/ErrorMsg";
 import Input from "../../UI/forms/Input";
 import Spinner from "../../UI/states/Spinner";
 import Payment from "./Payment";
+import { useRef } from "react";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PK!);
 
 export default function UserData() {
+  const formikRef = useRef(null);
   const { data, error, isLoading, isSuccess } = useQuery<
     { clientSecret: string },
     Error
@@ -62,6 +64,7 @@ export default function UserData() {
       <div className="mb-8">
         <h2 className="border-b border-slate-300 mb-8">Your Data</h2>
         <Formik
+          innerRef={formikRef}
           initialValues={{
             name: "",
             email: "",
