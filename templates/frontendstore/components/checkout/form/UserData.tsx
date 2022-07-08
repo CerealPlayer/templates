@@ -42,6 +42,7 @@ export default function UserData() {
       rules: {
         ".Input": {
           backgroundColor: "#F8FAFC",
+          color: "#475569",
           border: "solid 2px #64748b4d",
           padding: "4px 16px",
           lineHeight: "1.5rem",
