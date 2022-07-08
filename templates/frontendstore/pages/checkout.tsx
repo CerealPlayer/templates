@@ -4,7 +4,7 @@ import Section from "../components/UI/containers/Section";
 import { retrieveData } from "../helpers";
 import { calcPrice, getCartInfo } from "../helpers/client";
 import { useCart } from "../hooks/useCart";
-import { ArrayElement, products } from "../types/props";
+import { products } from "../types/props";
 
 export default function Checkout({ products }: { products: products }) {
   const { items } = useCart();
