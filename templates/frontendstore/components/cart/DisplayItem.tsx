@@ -10,6 +10,7 @@ export default function DisplayItem({
   id,
   qt,
   onDeleteItem,
+  addItem,
 }: {
   name?: string;
   src?: string;
@@ -17,6 +18,7 @@ export default function DisplayItem({
   id?: number;
   qt: number;
   onDeleteItem: (id: number) => void;
+  addItem: (id: number, qt: number) => void;
 }) {
   if (!name || !src || !price || !id) {
     return null;
@@ -26,7 +28,7 @@ export default function DisplayItem({
     onDeleteItem(id);
   };
   const qtHandler: ChangeEventHandler<HTMLSelectElement> = (e) => {
-    // Change qt on context
+    addItem(id, parseInt(e.target.value));
   };
   const basePrice = price.toFixed(2);
   return (
