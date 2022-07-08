@@ -4,7 +4,7 @@ import { ArrayElement, products } from "../../types/props";
 export default function DisplayCheckoutItem({
   item,
 }: {
-  item: ArrayElement<products>;
+  item: ArrayElement<products> & { qt: number };
 }) {
   const basePrice = item.price.toFixed(2);
   return (
@@ -21,6 +21,7 @@ export default function DisplayCheckoutItem({
         <div className="flex flex-col items-start md:gap-2">
           <h3>{item.name}</h3>
         </div>
+        <span>x {item.qt}</span>
       </div>
       <div className="flex flex-col items-end justify-start">
         <span className="font-bold text-slate-800">{basePrice} $</span>
