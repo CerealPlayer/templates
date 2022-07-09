@@ -8,9 +8,6 @@
   body {
     @apply text-slate-600 font-content text-sm md:text-base bg-slate-100
   }
-  #__next {
-    @apply min-h-screen flex flex-col justify-between
-  }
   h1 {
     @apply text-2xl md:text-4xl text-slate-800 font-bold font-title
   }

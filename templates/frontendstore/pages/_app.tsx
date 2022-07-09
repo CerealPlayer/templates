@@ -5,8 +5,10 @@ import { CartContextProvider } from "../context/cart-context";
 
 import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+  const queryClient = new QueryClient();
   return (
     <CartContextProvider>
       <Head>
@@ -18,9 +20,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         />
       </Head>
       <SessionProvider session={session}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <QueryClientProvider client={queryClient}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </QueryClientProvider>
       </SessionProvider>
     </CartContextProvider>
   );

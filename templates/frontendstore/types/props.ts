@@ -4,7 +4,10 @@ export type products = {
   short_desc: string;
   src: string;
   href: string;
+  price: number;
 }[];
 
 export type ArrayElement<ArrayType extends readonly unknown[]> =
   ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
+
+export type cartContent = (ArrayElement<products> & { qt: number })[];

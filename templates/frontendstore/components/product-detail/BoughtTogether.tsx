@@ -1,6 +1,6 @@
-import ProductCard from "../UI/ProductCard";
-import Section from "../UI/Section";
-import Separator from "../UI/Separator";
+import ProductCard from "../UI/cards/ProductCard";
+import Section from "../UI/containers/Section";
+import Separator from "../UI/blocks/Separator";
 
 export default function BoughtTogether() {
   return (

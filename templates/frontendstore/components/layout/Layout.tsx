@@ -13,6 +13,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <Push type="info" title="This site is a demo">
         <NotificationBody />
       </Push>
+      <main className="min-h-body">{children}</main>
       <Footer />
     </>
   );

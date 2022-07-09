@@ -1,12 +1,12 @@
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import ActionButton from "../UI/ActionButton";
+import ActionButton from "../UI/btns/ActionButton";
 
 export default function GoToCheckout() {
   const { status } = useSession();
   if (status === "authenticated") {
     return (
-      <div className="lg:col-span-6 border border-slate-300 rounded-xl px-4 py-8 max-h-28 flex flex-col gap-4 items-center">
+      <div className="lg:col-span-4 border border-slate-300 rounded-xl px-4 py-8 max-h-28 flex flex-col gap-4 items-center">
         <Link href="/checkout">
           <a className="max-w-xs w-full block">
             <ActionButton primary>Go to checkout</ActionButton>
@@ -16,7 +16,7 @@ export default function GoToCheckout() {
     );
   }
   return (
-    <div className="lg:col-span-6 border border-slate-300 rounded-xl px-4 py-8 max-h-52 flex flex-col gap-4 items-center">
+    <div className="lg:col-span-4 border border-slate-300 rounded-xl px-4 py-8 max-h-52 flex flex-col gap-4 items-center">
       <Link href="/login?ref=cart">
         <a className="max-w-xs w-full block">
           <ActionButton>Log in to checkout</ActionButton>

@@ -1,13 +1,18 @@
 import Image from "next/image";
-import BuyAction from "../UI/BuyAction";
-import Section from "../UI/Section";
-export default function ProductInfo() {
+import { ArrayElement, products } from "../../types/props";
+import BuyAction from "../UI/actions/BuyAction";
+import Section from "../UI/containers/Section";
+export default function ProductInfo({
+  item,
+}: {
+  item: ArrayElement<products>;
+}) {
   return (
     <Section>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="w-full lg:max-w-full max-w-xl h-max bg-sky-900 p-4 rounded-xl mx-auto lg:col-span-5">
           <Image
-            src="/techs/ReactLogo.svg"
+            src={item.src}
             width={500}
             height={490}
             alt="Image of the article"
@@ -16,7 +21,7 @@ export default function ProductInfo() {
         </div>
         <article className="lg:py-8 lg:col-span-4 w-full mx-auto">
           <div className="mb-8">
-            <h1>React</h1>
+            <h1>{item.name}</h1>
             <h2>Not just a library</h2>
           </div>
           <p className="mb-4">
@@ -32,7 +37,7 @@ export default function ProductInfo() {
             ipsum facilis fugiat.
           </p>
         </article>
-        <BuyAction />
+        <BuyAction {...item} />
       </div>
     </Section>
   );
