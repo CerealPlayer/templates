@@ -5,10 +5,10 @@ import Products from "../components/functional/Products";
 
 export default function Web({ products }: { products: products }) {
   return (
-    <main>
+    <>
       <Hero />
       <Products products={products} />
-    </main>
+    </>
   );
 }
 

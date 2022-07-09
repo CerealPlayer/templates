@@ -5,10 +5,12 @@ import Badge from "../../UI/notifications/Badge";
 
 const navVariants: Variants = {
   open: {
+    zIndex: 40,
     transition: { staggerChildren: 0.07, delayChildren: 0.1 },
   },
   closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    zIndex: -10,
+    transition: { staggerChildren: 0.05, staggerDirection: -1, delay: 0.5 },
   },
 };
 
@@ -41,7 +43,7 @@ export default function MobileNav({ isLoggedIn }: { isLoggedIn: boolean }) {
   return (
     <motion.ul
       variants={navVariants}
-      className="absolute top-40 w-56 z-40 left-1/2 -translate-x-1/2 flex flex-col justify-center gap-8 items-center"
+      className="absolute top-40 w-56 left-1/2 -translate-x-1/2 flex flex-col justify-center gap-8 items-center"
     >
       <NavItem>Trending</NavItem>
       <NavItem>On Sale</NavItem>

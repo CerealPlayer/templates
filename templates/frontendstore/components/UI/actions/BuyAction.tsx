@@ -1,6 +1,5 @@
-import { useContext } from "react";
-import { CartContext } from "../../context/cart-context";
-import ActionButton from "./ActionButton";
+import { useCart } from "../../../hooks/useCart";
+import ActionButton from "../btns/ActionButton";
 
 export default function BuyAction({
   id,
@@ -9,9 +8,11 @@ export default function BuyAction({
   id: number;
   price: number;
 }) {
-  const ctx = useContext(CartContext);
+  const { items, addItem } = useCart();
+  const qt = items.find((item) => item.id === id)?.qt;
+
   const cartHandler = () => {
-    ctx.onAddItem({ id });
+    qt ? addItem(id, qt + 1) : addItem(id, 1);
   };
   return (
     <>

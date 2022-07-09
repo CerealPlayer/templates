@@ -22,7 +22,11 @@ const menuBgVariants: Variants = {
   },
 };
 
-export default function MobileMenu({ children }: { children: React.ReactNode }) {
+export default function MobileMenu({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [isOpen, toggleIsOpen] = useCycle(false, true);
   return (
     <motion.div
@@ -31,7 +35,7 @@ export default function MobileMenu({ children }: { children: React.ReactNode }) 
       className="md:hidden flex items-center justify-center"
     >
       <motion.div
-        className="absolute top-0 right-0 z-20 bottom-0 w-full bg-neutral-100"
+        className="absolute top-0 right-0 z-20 bottom-0 w-full bg-slate-50"
         variants={menuBgVariants}
       ></motion.div>
       {children}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ReactNode } from "react";
-import Button from "../UI/Button";
+import Button from "../UI/btns/Button";
 import Badge from "../UI/notifications/Badge";
 
 export default function Nav({

@@ -1,9 +1,9 @@
 import { MdFilterList } from "react-icons/md";
 import { useState } from "react";
 import { products } from "../../types/props";
-import ProductCard from "../UI/ProductCard";
-import Section from "../UI/Section";
-import Separator from "../UI/Separator";
+import ProductCard from "../UI/cards/ProductCard";
+import Section from "../UI/containers/Section";
+import Separator from "../UI/blocks/Separator";
 import Filter from "./Filter";
 
 export default function Products({ products }: { products: products }) {

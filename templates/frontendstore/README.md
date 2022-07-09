@@ -2,7 +2,7 @@
 
 ## Content
 
-As of right now the template includes a landing page, product detail page, cart and auth pages.
+Landing page, product detail page, cart and auth pages.
 
 To avoid setting up a database (which would be super easy with [supabase](https://www.supabase.com), but you know, just a demo), product data comes from a json file and the cart is built with Context API. That's not how we usually do it but for the purpose of this demo it should suffice (for now 😈).
 
