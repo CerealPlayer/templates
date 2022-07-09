@@ -16,7 +16,7 @@ export function CartContextProvider({ children }: { children: ReactNode }) {
       const itemIndex = prev.findIndex((item) => item.id === id);
       if (itemIndex === -1) return [...prev, { id, qt: 1 }];
       const copyState = [...prev];
-      (copyState[itemIndex].qt = qt);
+      copyState[itemIndex].qt = qt;
       return copyState;
     });
   };

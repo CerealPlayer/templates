@@ -14,7 +14,6 @@ export default function Cart({ products }: { products: products }) {
       </div>
     );
   }
-  console.log(items);
   const productsInCart = items
     .filter((item) => item.id)
     .map((item) => {
@@ -34,7 +33,12 @@ export default function Cart({ products }: { products: products }) {
     <CartContainer>
       <div className="rounded-xl lg:col-span-8 border-slate-300 px-4 py-2 flex flex-col gap-4">
         {productsInCart.map((item) => (
-          <DisplayItem key={item!.id} onDeleteItem={deleteItem} {...item!} addItem={addItem} />
+          <DisplayItem
+            key={item!.id}
+            onDeleteItem={deleteItem}
+            {...item!}
+            addItem={addItem}
+          />
         ))}
       </div>
       <GoToCheckout />

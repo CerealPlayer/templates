@@ -23,7 +23,6 @@ export default function DisplayItem({
   if (!name || !src || !price || !id) {
     return null;
   }
-  console.log(qt);
   const deleteHandler = () => {
     onDeleteItem(id);
   };

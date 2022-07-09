@@ -11,7 +11,9 @@ export default function ProductDetail({ products }: { products: products }) {
   if (!products) {
     return null;
   }
-  const currentItem = products.find((product) => product.name.toLowerCase() === slug);
+  const currentItem = products.find(
+    (product) => product.name.toLowerCase() === slug
+  );
   if (!currentItem) {
     return (
       <div className="flex justify-center items-center min-h-body">

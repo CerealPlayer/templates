@@ -1,34 +1,56 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe, StripeElementsOptions } from "@stripe/stripe-js";
-import { Form, Formik } from "formik";
+import { Form, Formik, FormikProps } from "formik";
 import { useQuery } from "react-query";
 import ErrorMsg from "../../UI/notifications/ErrorMsg";
 import Input from "../../UI/forms/Input";
 import Spinner from "../../UI/states/Spinner";
 import Payment from "./Payment";
 import { useRef } from "react";
+import { cartContent } from "../../../types/props";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PK!);
 
-export default function UserData() {
-  const formikRef = useRef(null);
-  const { data, error, isLoading, isSuccess } = useQuery<
-    { clientSecret: string },
+const MILISECONDS_IN_TEN_MINUTES = 10 * 60 * 1000;
+
+export default function UserData({ cart }: { cart: cartContent }) {
+  const formikRef =
+    useRef<FormikProps<{ name: string; email: string; direction: string }>>(
+      null
+    );
+
+  const { data, error, isLoading } = useQuery<
+    { clientSecret: string; paymentIntentId: string },
     Error
-  >("clientSecret", async () => {
-    const result = await fetch("/api/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    if (!result.ok) {
-      throw new Error("Unable to create payment intent");
-    }
-    return await result.json();
-  });
+  >(
+    "clientSecret",
+    async () => {
+      const result = await fetch("/api/create-payment-intent", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(cart),
+      });
+      if (!result.ok) {
+        throw new Error("Unable to create payment intent");
+      }
+      return await result.json();
+    },
+    { staleTime: MILISECONDS_IN_TEN_MINUTES }
+  );
+
+  if (!data) {
+    return (
+      <>
+        {isLoading && <Spinner />}
+        {error && <ErrorMsg>{error.message}</ErrorMsg>}
+      </>
+    );
+  }
+  
   const options: StripeElementsOptions = {
-    clientSecret: data ? data.clientSecret : "",
+    clientSecret: data.clientSecret,
     fonts: [
       {
         cssSrc:
@@ -56,8 +78,15 @@ export default function UserData() {
       },
     },
   };
-  const submitHandler = async (values: any) => {
-    console.log(values);
+  const submitHandler = async () => {
+    const userData = formikRef.current?.values;
+    const pi = data?.paymentIntentId;
+    // TODO Api endpoint to save order data
+    return {
+      email: userData?.email,
+      saveDataHandler: (receivedPi: string) =>
+        console.log(userData, pi, receivedPi),
+    };
   };
   return (
     <div className="bg-slate-50 border border-slate-300 rounded-xl py-4 px-4 lg:px-12">
@@ -83,13 +112,9 @@ export default function UserData() {
       </div>
       <div className="mb-8">
         <h2 className="border-b border-slate-300 mb-8">Your payment details</h2>
-        {isLoading && <Spinner />}
-        {error && <ErrorMsg>{error.message}</ErrorMsg>}
-        {isSuccess && (
-          <Elements stripe={stripePromise} options={options}>
-            <Payment />
-          </Elements>
-        )}
+        <Elements stripe={stripePromise} options={options}>
+          <Payment onSubmit={submitHandler} />
+        </Elements>
       </div>
     </div>
   );

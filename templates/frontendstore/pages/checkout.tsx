@@ -8,7 +8,7 @@ import { products } from "../types/props";
 
 export default function Checkout({ products }: { products: products }) {
   const { items } = useCart();
-  const productsInCart = getCartInfo({ items, products })
+  const productsInCart = getCartInfo({ items, products });
   if (!productsInCart.some((item) => item !== null)) {
     return (
       <div className="flex justify-center items-center min-h-body">
@@ -21,7 +21,7 @@ export default function Checkout({ products }: { products: products }) {
     <Section>
       <div className="grid lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-8">
-          <UserData />
+          <UserData cart={productsInCart} />
         </div>
         <div className="lg:col-span-4">
           <h1>{price.toFixed(2)} $</h1>

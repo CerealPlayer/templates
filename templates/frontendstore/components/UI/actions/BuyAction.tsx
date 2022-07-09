@@ -10,7 +10,7 @@ export default function BuyAction({
 }) {
   const { items, addItem } = useCart();
   const qt = items.find((item) => item.id === id)?.qt;
-  
+
   const cartHandler = () => {
     qt ? addItem(id, qt + 1) : addItem(id, 1);
   };

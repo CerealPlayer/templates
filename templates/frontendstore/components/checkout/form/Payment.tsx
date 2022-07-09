@@ -8,9 +8,12 @@ import { FormEventHandler, useState } from "react";
 import ActionButton from "../../UI/btns/ActionButton";
 
 export default function Payment({
-  // onSubmit,
+  onSubmit,
 }: {
-  // onSubmit: (values: any) => Promise<void>;
+  onSubmit: () => Promise<{
+    email: string | undefined;
+    saveDataHandler: (receivedPi: string) => void;
+  }>;
 }) {
   const router = useRouter();
   const [errorMsg, setErrorMsg] = useState("");
@@ -18,14 +21,21 @@ export default function Payment({
   const elements = useElements();
   const submitPaymentHandler: FormEventHandler = async (e) => {
     e.preventDefault();
+    const { email, saveDataHandler } = await onSubmit();
     if (!stripe || !elements) return;
-    const { error } = await stripe.confirmPayment({
+    const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: router.basePath,
+        receipt_email: email,
       },
+      redirect: "if_required",
     });
-    if (error.type === "card_error" || error.type === "validation_error") {
+    if (!error) {
+      saveDataHandler(paymentIntent.id);
+    } else if (
+      error.type === "card_error" ||
+      error.type === "validation_error"
+    ) {
       setErrorMsg(error.message!);
     } else {
       setErrorMsg("Unexpected error");
@@ -35,7 +45,9 @@ export default function Payment({
     <form className="flex flex-col gap-8" onSubmit={submitPaymentHandler}>
       {errorMsg && <p>{errorMsg}</p>}
       <PaymentElement />
-      <ActionButton primary>Pay now</ActionButton>
+      <ActionButton primary type={"submit"}>
+        Pay now
+      </ActionButton>
     </form>
   );
 }
