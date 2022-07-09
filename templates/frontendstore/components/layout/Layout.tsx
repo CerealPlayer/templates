@@ -9,7 +9,6 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />
-      {children}
       <Push type="info" title="This site is a demo">
         <NotificationBody />
       </Push>
