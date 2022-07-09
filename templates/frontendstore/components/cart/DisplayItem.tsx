@@ -48,7 +48,7 @@ export default function DisplayItem({
               <span>Qt</span>
               <select onChange={qtHandler} value={qt} className="bg-slate-200">
                 {Array.from(Array(10), (_, x) => x + 1).map((n) => (
-                  <option>{n}</option>
+                  <option key={"Option - " + n}>{n}</option>
                 ))}
               </select>
             </div>

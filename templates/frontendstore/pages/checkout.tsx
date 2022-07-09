@@ -27,7 +27,7 @@ export default function Checkout({ products }: { products: products }) {
           <h1>{price.toFixed(2)} $</h1>
           <div className="rounded-xl lg:col-span-8 border-slate-300 px-4 py-2 flex flex-col gap-4">
             {productsInCart.map((item) => (
-              <DisplayCheckoutItem item={item!} />
+              <DisplayCheckoutItem key={"item-id-" + item.id} item={item!} />
             ))}
           </div>
         </div>
