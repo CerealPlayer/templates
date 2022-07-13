@@ -16,7 +16,6 @@ export default function Web({ products }: { products: products }) {
 export async function getStaticProps() {
   const data = await readFile("./data/products.json");
   const products = JSON.parse(data.toString());
-  // const { rows } = await pool.query('SELECT * FROM products');
   const rows = await psql.from("products").select("*");
   console.log(rows);
   return {
