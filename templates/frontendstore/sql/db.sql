@@ -1,5 +1,8 @@
 CREATE TABLE products (
   id SERIAL NOT NULL,
-  prod_name VARCHAR NOT NULL,
+  name VARCHAR NOT NULL,
+  src VARCHAR NOT NULL,
+  href VARCHAR NOT NULL,
+  price DECIMAL NOT NULL,
   PRIMARY KEY (id)
 );
