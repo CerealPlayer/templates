@@ -1,6 +1,7 @@
 CREATE TABLE products (
   id SERIAL NOT NULL,
   name VARCHAR NOT NULL,
+  short_desc TEXT NOT NULL,
   src VARCHAR NOT NULL,
   href VARCHAR NOT NULL,
   price DECIMAL NOT NULL,

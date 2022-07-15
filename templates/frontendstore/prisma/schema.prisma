@@ -8,9 +8,10 @@ datasource db {
 }
 
 model products {
-  id    Int     @id @default(autoincrement())
-  name  String  @db.VarChar
-  src   String  @db.VarChar
-  href  String  @db.VarChar
-  price Decimal @db.Decimal
+  id         Int     @id @default(autoincrement())
+  name       String  @db.VarChar
+  short_desc String
+  src        String  @db.VarChar
+  href       String  @db.VarChar
+  price      Decimal @db.Decimal
 }
