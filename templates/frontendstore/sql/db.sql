@@ -8,6 +8,8 @@ CREATE TABLE products (
   PRIMARY KEY (id)
 );
 
+-- Dummy data for display purposes
+
 INSERT INTO products (name, short_desc, src, href, price) VALUES 
 ('React', 'Everybody loves (hates) it', '/techs/ReactLogo.svg', '/products/react', 18.1),
 ('Angular', 'What else do you need', '/techs/angularlogo.svg', '/products/angular', 14),
