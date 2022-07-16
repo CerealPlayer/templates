@@ -1,6 +1,4 @@
-import { GetServerSideProps } from "next";
-import { getSession, signOut } from "next-auth/react";
-import { redirect } from "next/dist/server/api-utils";
+import { signOut } from "next-auth/react";
 import ActionButton from "../components/UI/btns/ActionButton";
 import Section from "../components/UI/containers/Section";
 
@@ -21,18 +19,3 @@ export default function AccountPage() {
     </Section>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const session = await getSession(context);
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
-  return {
-    props: {},
-  };
-};
