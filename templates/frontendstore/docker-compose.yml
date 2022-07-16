@@ -9,4 +9,7 @@ services:
       POSTGRES_PASSWORD: postgrespw # Make sure to use your own!
       POSTGRES_DB: ecomm
     volumes:
-      - "./sql:/docker-entrypoint-initdb.d"
+      # - "./sql:/docker-entrypoint-initdb.d"
+      - type: bind
+        source: ./sql
+        target: /docker-entrypoint-initdb.d
