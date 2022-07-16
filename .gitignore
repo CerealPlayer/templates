@@ -32,3 +32,10 @@ yarn-error.log*
 
 # turbo
 .turbo
+
+# yalc
+.yalc
+yalc.lock
+
+# composer
+prod-compose.yml

@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: "postgres"
+    ports:
+      - 49153:5432
+    environment:
+      POSTGRES_PASSWORD: postgrespw # Make sure to use your own!
+      POSTGRES_DB: ecomm
+    volumes:
+      # - "./sql:/docker-entrypoint-initdb.d"
+      - type: bind
+        source: ./sql
+        target: /docker-entrypoint-initdb.d
