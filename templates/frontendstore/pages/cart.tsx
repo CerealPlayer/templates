@@ -1,9 +1,9 @@
 import CartContainer from "../components/cart/CartContainer";
 import DisplayItem from "../components/cart/DisplayItem";
 import GoToCheckout from "../components/cart/GoToCheckout";
-import { retrieveData } from "../helpers";
 import { useCart } from "../hooks/useCart";
 import { products } from "../types/props";
+import { getAllProducts } from "../utils/db";
 
 export default function Cart({ products }: { products: products }) {
   const { items, addItem, deleteItem } = useCart();
@@ -47,7 +47,7 @@ export default function Cart({ products }: { products: products }) {
 }
 
 export async function getStaticProps() {
-  const products = await retrieveData();
+  const products = await getAllProducts();
   return {
     props: {
       products,

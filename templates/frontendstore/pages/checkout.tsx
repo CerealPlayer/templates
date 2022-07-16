@@ -1,10 +1,10 @@
 import DisplayCheckoutItem from "../components/checkout/DisplayCheckoutItem";
 import UserData from "../components/checkout/form/UserData";
 import Section from "../components/UI/containers/Section";
-import { retrieveData } from "../helpers";
 import { calcPrice, getCartInfo } from "../helpers/client";
 import { useCart } from "../hooks/useCart";
 import { products } from "../types/props";
+import { getAllProducts } from "../utils/db";
 
 export default function Checkout({ products }: { products: products }) {
   const { items } = useCart();
@@ -37,7 +37,7 @@ export default function Checkout({ products }: { products: products }) {
 }
 
 export async function getStaticProps() {
-  const products = await retrieveData();
+  const products = await getAllProducts();
   return {
     props: {
       products,

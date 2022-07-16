@@ -1,9 +1,8 @@
-import { readFile } from "fs/promises";
 import { useRouter } from "next/router";
 import BoughtTogether from "../../components/product-detail/BoughtTogether";
 import ProductInfo from "../../components/product-detail/ProductInfo";
-import { retrieveData } from "../../helpers";
 import { products } from "../../types/props";
+import { getAllProducts } from "../../utils/db";
 
 export default function ProductDetail({ products }: { products: products }) {
   const { query } = useRouter();
@@ -30,7 +29,7 @@ export default function ProductDetail({ products }: { products: products }) {
 }
 
 export async function getStaticPaths() {
-  const products = await retrieveData();
+  const products = await getAllProducts();
   const allNames = products.map((product) => product.name);
   const paths = allNames.map((name) => ({ params: { slug: name } }));
 
@@ -41,7 +40,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
-  const products = await retrieveData();
+  const products = await getAllProducts();
   return {
     props: {
       products: products,

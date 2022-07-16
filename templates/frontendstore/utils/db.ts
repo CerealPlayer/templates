@@ -1,4 +1,10 @@
-import { PSQL } from "psql-js";
-const connectionString = process.env.POSTGRES_CONNECTION_URI;
+import { PrismaClient } from "@prisma/client";
 
-export const psql = new PSQL(connectionString!);
+const prisma = new PrismaClient();
+
+export const getAllProducts = async () => {
+  const result = await prisma.products.findMany();
+  const products = result.map(item => ({ ...item, price: item.price.toNumber() }));
+  await prisma.$disconnect();
+  return products;
+}
