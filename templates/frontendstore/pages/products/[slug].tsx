@@ -30,7 +30,7 @@ export default function ProductDetail({ products }: { products: products }) {
 
 export async function getStaticPaths() {
   const products = await getAllProducts();
-  const allNames = products.map((product) => product.name);
+  const allNames = products.map((product) => product.name.toLowerCase());
   const paths = allNames.map((name) => ({ params: { slug: name } }));
 
   return {
