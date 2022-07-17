@@ -14,10 +14,11 @@ export default NextAuth({
         terms: { label: "Terms" },
         proto: { label: "Proto" },
       },
-      authorize(credentials) {
+      async authorize(credentials) {
         // Data validation, from db check if user exists and retrieve info.
         if (credentials) {
-          return { id: credentials.user, user: credentials.user };
+          const user = { name: credentials.user, email: "test@test.test" };
+          return user;
         }
         return null;
       },

@@ -7,7 +7,7 @@ import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
   return (
     <CartContextProvider>
@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           content="This is a template that I personally use to learn and as a reference. It is supposed to be a complete e-commerce website, with all the integrations that something like that requires."
         />
       </Head>
-      <SessionProvider session={session}>
+      <SessionProvider>
         <QueryClientProvider client={queryClient}>
           <Layout>
             <Component {...pageProps} />

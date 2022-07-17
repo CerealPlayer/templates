@@ -13,10 +13,8 @@ export default function Login() {
   const signInHandler = async (value: any) => {
     const result = await signIn<RedirectableProviderType>("credentials", {
       redirect: false,
-      user: value.username,
-      email: value.email,
+      user: value.user,
       pass: value.pass,
-      terms: value.terms,
       proto: "login",
     });
     if (result && result.ok) {
