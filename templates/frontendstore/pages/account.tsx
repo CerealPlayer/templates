@@ -1,10 +1,11 @@
-import { useSession, signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import ActionButton from "../components/UI/btns/ActionButton";
 import Section from "../components/UI/containers/Section";
+import { useUserData } from "../hooks/useUserData";
 
 export default function AccountPage() {
-  const { data } = useSession();
-  // Query user data with name and email from auth token
+  const { userData: data, error, isLoading } = useUserData()
+  console.log(data)
   return (
     <Section>
       <div className="flex justify-center items-center">
