@@ -8,10 +8,116 @@ datasource db {
 }
 
 model products {
-  id         Int     @id @default(autoincrement())
-  name       String  @db.VarChar
-  short_desc String
-  src        String  @db.VarChar
-  href       String  @db.VarChar
-  price      Decimal @db.Decimal
+  id                 Int                @id @default(autoincrement())
+  name               String             @db.VarChar
+  short_desc         String
+  sku                String?            @db.VarChar
+  category_id        Int
+  qt                 Decimal            @db.Decimal
+  price              Decimal            @db.Decimal
+  created_at         DateTime           @default(now()) @db.Timestamp(6)
+  modified_at        DateTime?          @db.Timestamp(6)
+  product_categories product_categories @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_cate")
+  order_items        order_items[]
+  product_media      product_media[]
+}
+
+model users {
+  id             Int              @id @default(autoincrement())
+  username       String           @db.VarChar
+  pass           String           @db.VarChar
+  full_name      String
+  phone          Int
+  phone_prefix   Int
+  created_at     DateTime         @default(now()) @db.Timestamp(6)
+  modified_at    DateTime?        @db.Timestamp(6)
+  orders         orders[]
+  user_addresses user_addresses[]
+  user_payments  user_payments[]
+}
+
+model discounts {
+  id                Int       @id @default(autoincrement())
+  name              String    @db.VarChar
+  descr             String
+  discount_percent  Decimal?  @db.Decimal
+  discount_absolute Decimal?  @db.Decimal
+  active            Boolean
+  created_at        DateTime  @default(now()) @db.Timestamp(6)
+  modified_at       DateTime? @db.Timestamp(6)
+  deleted_at        DateTime? @db.Timestamp(6)
+}
+
+model order_items {
+  id          Int       @id @default(autoincrement())
+  order_id    Int
+  product_id  Int
+  qt          Decimal   @db.Decimal
+  created_at  DateTime  @default(now()) @db.Timestamp(6)
+  modified_at DateTime? @db.Timestamp(6)
+  orders      orders    @relation(fields: [order_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_order")
+  products    products  @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_product")
+}
+
+model orders {
+  id              Int               @id @default(autoincrement())
+  user_id         Int
+  created_at      DateTime          @default(now()) @db.Timestamp(6)
+  modified_at     DateTime?         @db.Timestamp(6)
+  users           users             @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user")
+  order_items     order_items[]
+  payment_details payment_details[]
+}
+
+model payment_details {
+  id          Int       @id @default(autoincrement())
+  order_id    Int
+  amount      Decimal   @db.Decimal
+  stripe_pi   String    @db.VarChar
+  status      String    @db.VarChar
+  created_at  DateTime  @default(now()) @db.Timestamp(6)
+  modified_at DateTime? @db.Timestamp(6)
+  orders      orders    @relation(fields: [order_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_order")
+}
+
+model product_categories {
+  id          Int        @id @default(autoincrement())
+  name        String     @db.VarChar
+  descr       String
+  created_at  DateTime   @default(now()) @db.Timestamp(6)
+  modified_at DateTime?  @db.Timestamp(6)
+  deleted_at  DateTime?  @db.Timestamp(6)
+  products    products[]
+}
+
+model product_media {
+  id          Int       @id @default(autoincrement())
+  product_id  Int
+  media_type  String    @db.VarChar
+  url         String    @db.VarChar
+  created_at  DateTime  @default(now()) @db.Timestamp(6)
+  modified_at DateTime? @db.Timestamp(6)
+  deleted_at  DateTime? @db.Timestamp(6)
+  products    products  @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_product")
+}
+
+model user_addresses {
+  id          Int       @id @default(autoincrement())
+  user_id     Int
+  line_1      String
+  line_2      String?
+  postal_code String?   @db.VarChar
+  country     String?   @db.VarChar
+  created_at  DateTime  @default(now()) @db.Timestamp(6)
+  modified_at DateTime? @db.Timestamp(6)
+  users       users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user")
+}
+
+model user_payments {
+  id          Int       @id @default(autoincrement())
+  user_id     Int
+  stripe_id   String    @db.VarChar
+  created_at  DateTime  @default(now()) @db.Timestamp(6)
+  modified_at DateTime? @db.Timestamp(6)
+  users       users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user")
 }
