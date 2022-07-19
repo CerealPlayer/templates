@@ -34,13 +34,17 @@ CREATE TABLE product_media (
 CREATE TABLE discounts (
   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   name VARCHAR NOT NULL,
+  product_id INT,
+  category_id INT,
   descr TEXT NOT NULL,
   discount_percent DECIMAL,
   discount_absolute DECIMAL,
   active BOOLEAN NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
   modified_at TIMESTAMP,
-  deleted_at TIMESTAMP
+  deleted_at TIMESTAMP,
+  CONSTRAINT fk_product FOREIGN KEY(product_id) REFERENCES products(id),
+  CONSTRAINT fk_category FOREIGN KEY(category_id) REFERENCES product_categories(id)
 );
 
 CREATE TABLE users (
