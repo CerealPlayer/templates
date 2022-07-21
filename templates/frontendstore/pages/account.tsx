@@ -5,7 +5,6 @@ import { useUserData } from "../hooks/useUserData";
 
 export default function AccountPage() {
   const { userData: data, error, isLoading } = useUserData()
-  console.log(data)
   return (
     <Section>
       <div className="flex justify-center items-center">
