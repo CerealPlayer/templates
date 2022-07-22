@@ -1,3 +1,4 @@
+import { Session } from "next-auth";
 import Link from "next/link";
 import { ReactNode } from "react";
 import Button from "../UI/btns/Button";
@@ -6,9 +7,11 @@ import Badge from "../UI/notifications/Badge";
 export default function Nav({
   children,
   isLoggedIn,
+  sessionData
 }: {
   children: ReactNode;
   isLoggedIn: boolean;
+  sessionData: Session | null;
 }) {
   return (
     <div className="hidden border-b-2 border-b-slate-300 px-0 md:px-8 py-2 md:py-4 xl:grid grid-cols-3 justify-items-center">
@@ -33,7 +36,7 @@ export default function Nav({
           </Link>
         )}
         {isLoggedIn && (
-          <Link href="/account">
+          <Link href={`/user/${sessionData?.user?.name}`}>
             <a>
               <Button>My account</Button>
             </a>

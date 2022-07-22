@@ -1,4 +1,5 @@
 import { motion, Variants } from "framer-motion";
+import { Session } from "next-auth";
 import Link from "next/link";
 import { ReactNode } from "react";
 import Badge from "../../UI/notifications/Badge";
@@ -39,7 +40,7 @@ function NavItem({ children }: { children: ReactNode }) {
   );
 }
 
-export default function MobileNav({ isLoggedIn }: { isLoggedIn: boolean }) {
+export default function MobileNav({ isLoggedIn, sessionData }: { isLoggedIn: boolean; sessionData: Session | null; }) {
   return (
     <motion.ul
       variants={navVariants}
@@ -61,7 +62,7 @@ export default function MobileNav({ isLoggedIn }: { isLoggedIn: boolean }) {
           </Link>
         )}
         {isLoggedIn && (
-          <Link href="/account">
+          <Link href={`/user/${sessionData?.user?.name}`}>
             <a>My account</a>
           </Link>
         )}

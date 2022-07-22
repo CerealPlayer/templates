@@ -17,9 +17,10 @@ export default function Login() {
       pass: value.pass,
       proto: "login",
     });
+    console.log(result);
     if (result && result.ok) {
       const isRefCart = query.ref === "cart";
-      push(isRefCart ? "/cart" : "/account");
+      push(isRefCart ? "/cart" : `/user/${value.user}`);
     }
   };
   const initialValues = {

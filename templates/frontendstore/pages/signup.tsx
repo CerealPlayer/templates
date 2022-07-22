@@ -25,7 +25,7 @@ export default function Signup() {
     });
     if (result && result.ok) {
       const isRefCart = query.ref === "cart";
-      push(isRefCart ? "/cart" : "/account");
+      push(isRefCart ? "/cart" : `/user/${value.user}`);
     }
   };
 
