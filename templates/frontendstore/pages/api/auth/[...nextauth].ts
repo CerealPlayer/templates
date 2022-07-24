@@ -1,7 +1,8 @@
+import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export default NextAuth({
+export const AuthOptions: NextAuthOptions = {
   pages: {
     signIn: "/login",
   },
@@ -27,4 +28,6 @@ export default NextAuth({
   session: {
     strategy: "jwt",
   },
-});
+}
+
+export default NextAuth(AuthOptions);

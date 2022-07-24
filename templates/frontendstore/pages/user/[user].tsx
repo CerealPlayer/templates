@@ -5,6 +5,7 @@ import { signOut } from "next-auth/react";
 import ActionButton from "../../components/UI/btns/ActionButton";
 import Section from "../../components/UI/containers/Section";
 import { useUserData } from "../../hooks/useUserData";
+import { AuthOptions } from "../api/auth/[...nextauth]";
 
 export default function AccountPage() {
   const { userData: data, error, isLoading } = useUserData()
@@ -25,10 +26,10 @@ export default function AccountPage() {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const token = await getToken(context);
-  const query = context.params?.user;
-  if (token?.name !== query) {
+export const getServerSideProps: GetServerSideProps = async ({ req, res, params }) => {
+  const session = await unstable_getServerSession(req, res, AuthOptions);
+  const query = params?.user;
+  if (session?.user?.name !== query) {
     return {
       redirect: {
         destination: "/?error=auth",
